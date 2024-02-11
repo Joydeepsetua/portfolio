@@ -1,5 +1,6 @@
 // Images
 export const profileImage = '/joydeep.jpeg';
+export const sheetingWithDesktop = '/sheetingwithdesktop.svg';
 
 // Logo
 export const feviconLogo = '/fevicon.png';

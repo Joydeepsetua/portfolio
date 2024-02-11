@@ -1,101 +1,65 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image'
 import styles from './page.module.css'
-import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap'
-import { feviconLogo, profileImage, reactLogo } from '@/config/ImgPath'
+import { Container, Row, Col} from 'react-bootstrap'
+import { sheetingWithDesktop } from '@/config/ImgPath'
 import { LIGHTBLACK, PRIMARY, WHITE } from '@/config/Colors';
-import { Style as MyStyle } from '@/Styles';
 import { Skills as skills, Projets as projects } from '../config/Constant';
+import { Comforter_Brush } from 'next/font/google';
+
+const roboto = Comforter_Brush({
+  weight: '400',
+  subsets:['latin'],
+  display:'swap'
+})
+
 
 export default function Home() {
   return (
     <Container fluid className={`p-0 ${styles.main}`}>
-      <Row style={MyStyle.navbar}>
-        <Col style={{ alignItems: 'center' }}>
-          <Image
+      <Container>
+        <Row className='mt-5 mb-5'>
+          <Col className='align-items-center'>
+            {/* <Image
             // className={}
             src={feviconLogo}
             alt="Logo"
             width={40}
             height={30}
             priority
-          />
-          <strong style={{ color: 'white' }}>Protfolio</strong>
-        </Col>
-        <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <a className={styles.nav_item} style={{ textDecoration: 'none' }}><span>Home</span></a>
-          <a className={styles.nav_item} style={{ textDecoration: 'none' }}><span>Projects</span></a>
-        </Col>
-      </Row>
-      <Container>
-        <Row style={{}}>
-          <Col lg={8} style={{ color: '#ffff' }}>
-            <span>Ahoy..!</span><br />
-            <span>I'm </span>
-            <strong>Joydeep Setua</strong>
+          /> */}
+            <h3 style={{ color: 'white' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
           </Col>
-          <Col className={styles.center} style={{}}>
+          <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Home</samp></a>
+            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Projects</samp></a>
+            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Contact</samp></a>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col lg={6} style={{ color: '#ffff' }} className='d-flex align-items-center'>
+            <div>
+              {/* <h6>Ahoy..!</h6>
+            <h6>I'm </h6> */}
+              <h1>Joydeep Setua</h1>
+              <h4>(Mobile App Developer)</h4>
+              <p>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects, specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools.</p>
+
+            </div>
+          </Col>
+          <Col className={styles.center}>
             <Image
-              className={styles.profile_photo}
-              src={profileImage}
+              className={`p-1 ${styles.profile_photo}`}
+              src={sheetingWithDesktop}
               alt="Profile photo"
-              width={300}
-              height={400}
+              width={400}
+              height={450}
               priority
             />
           </Col>
         </Row>
-        {/* <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>Explore starter templates for Next.js.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL with Vercel.
-            </p>
-          </a>
-        </div> */}
       </Container>
       <div style={{ backgroundColor: LIGHTBLACK, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>
         <Container>

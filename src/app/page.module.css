@@ -40,7 +40,7 @@
 
 .center {
   display: flex;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   align-items: center;
   justify-content: center;
   position: relative;
@@ -71,11 +71,11 @@
   transform: translateZ(0);
 }
 
-.profile_photo {
+/* .profile_photo {
   position: relative;
   filter: drop-shadow(0 0 0.8rem rgba(57, 203, 249, 0.8));
   border-radius: var(--border-radius);
-}
+} */
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
