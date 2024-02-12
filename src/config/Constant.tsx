@@ -2,9 +2,21 @@ import {
     abisLogo,
     androidLogo,
     bjymLogo,
+    facebookFill,
+    facebookOutline,
     firebaseLogo,
+    githubFill,
     githubLogo,
+    githubOutline,
+    googleFill,
+    googleOutline,
+    instaFill,
+    instaOutline,
     lazizLogo,
+    leetcodeFill,
+    leetcodeOutline,
+    linkedinFill,
+    linkedinOutline,
     mongodbLogo,
     mysqlLogo,
     nodeLogo,
@@ -13,11 +25,17 @@ import {
     reactLogo,
     reduxLogo,
     srijanLogo,
+    stackOverflowFill,
+    stackOverflowOutline,
     stackurLogo,
-    xcodeLogo
+    twitterFill,
+    twitterOutline,
+    xcodeLogo,
+    youtubeFill,
+    youtubeOutline
 } from "./ImgPath";
 
-export const Skills = [
+export const SKILLS = [
     {
         id: 1,
         title: "React-Native",
@@ -90,12 +108,12 @@ export const Skills = [
     },
 ];
 
-export const Projets = [
+export const PROJECTS = [
     {
         id: 1,
         title: "STACKUR",
-        discription:'stackur',
-        time:'Jun 2023 - Jan 2024',
+        discription: 'stackur',
+        time: 'Jun 2023 - Jan 2024',
         path: stackurLogo,
         width: 50,
         height: 50
@@ -103,8 +121,8 @@ export const Projets = [
     {
         id: 2,
         title: "Srijan academy",
-        discription:'Srijan academy',
-        time:'',
+        discription: 'Srijan academy',
+        time: '',
         path: srijanLogo,
         width: 45,
         height: 45
@@ -112,8 +130,8 @@ export const Projets = [
     {
         id: 3,
         title: "LAZIZ",
-        discription:'Laziz',
-        time:'',
+        discription: 'Laziz',
+        time: '',
         path: lazizLogo,
         width: 45,
         height: 45
@@ -121,8 +139,8 @@ export const Projets = [
     {
         id: 4,
         title: "Abis Shipment",
-        discription:'Abis Shipment',
-        time:'',
+        discription: 'Abis Shipment',
+        time: '',
         path: abisLogo,
         width: 80,
         height: 40
@@ -130,8 +148,8 @@ export const Projets = [
     {
         id: 5,
         title: "BJYM",
-        discription:'BJYM',
-        time:'Jun 2023 - Jan 2023',
+        discription: 'BJYM',
+        time: 'Jun 2023 - Jan 2023',
         path: bjymLogo,
         width: 50,
         height: 48
@@ -139,10 +157,104 @@ export const Projets = [
     {
         id: 6,
         title: "Paikra",
-        discription:'Paikra',
-        time:'Jun 2023 - Jan 2023',
+        discription: 'Paikra',
+        time: 'Jun 2023 - Jan 2023',
         path: paikraLogo,
         width: 50,
         height: 48
+    },
+];
+
+export const SOCIAL_MEDIA = [
+    {
+        id: 1,
+        title: "facebook",
+        path_fill: facebookFill,
+        path_outline: facebookOutline,
+        width: 30,
+        height: 30,
+        url: 'https://www.facebook.com/joydeep.setua',
+        is_hover : false
+    },
+    {
+        id: 2,
+        title: "instagram",
+        path_fill: instaFill,
+        path_outline: instaOutline,
+        width: 30,
+        height: 30,
+        url: 'https://www.instagram.com/joydeepsetua',
+        is_hover : false
+
+    },
+    {
+        id: 3,
+        title: "linkedin",
+        path_fill: linkedinFill,
+        path_outline: linkedinOutline,
+        width: 30,
+        height: 30,
+        url: 'https://www.linkedin.com/in/joydeep-setua-a22016210',
+        is_hover : false
+    },
+    {
+        id: 4,
+        title: "github",
+        path_fill: githubFill,
+        path_outline: githubOutline,
+        width: 30,
+        height: 30,
+        url: 'https://github.com/Joydeepsetua',
+        is_hover : false
+    },
+    {
+        id: 5,
+        title: "twitter",
+        path_fill: twitterFill,
+        path_outline: twitterOutline,
+        width: 30,
+        height: 30,
+        url: 'https://twitter.com/Joydeepsetua?s=20',
+        is_hover : false
+    },
+    {
+        id: 6,
+        title: "google",
+        path_fill: googleFill,
+        path_outline: googleOutline,
+        width: 30,
+        height: 30,
+        url: 'https://joydeepsetua.github.io/Joydeepprofile.github.io/',
+        is_hover : false
+    },
+    {
+        id: 7,
+        title: "youtube",
+        path_fill: youtubeFill,
+        path_outline: youtubeOutline,
+        width: 30,
+        height: 30,
+        url: 'https://youtube.com/joydeepclasses',
+        is_hover : false
+    },
+    {
+        id: 8,
+        title: "leetcode",
+        path_fill: leetcodeFill,
+        path_outline: leetcodeOutline,
+        width: 30,
+        height: 30,
+        url: 'https://leetcode.com/JoydeepSetua/',
+        is_hover : false
+    },
+    {
+        id: 9,
+        title: "stackoverflow",
+        path_fill: stackOverflowFill,
+        path_outline: stackOverflowOutline,
+        width: 30,
+        height: 30,
+        url: 'https://stackoverflow.com/users/22558425/joydeep-setua',
+        is_hover : false
     },
 ];
