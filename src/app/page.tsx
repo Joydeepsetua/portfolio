@@ -1,11 +1,13 @@
+"use client"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image'
 import styles from './page.module.css'
 import { Container, Row, Col} from 'react-bootstrap'
 import { sheetingWithDesktop } from '@/config/ImgPath'
-import { LIGHTBLACK, PRIMARY, WHITE } from '@/config/Colors';
+import { GRAY, LIGHTBLACK, PRIMARY, WHITE } from '@/config/Colors';
 import { Skills as skills, Projets as projects } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
+import React from 'react';
 
 const roboto = Comforter_Brush({
   weight: '400',
@@ -15,6 +17,7 @@ const roboto = Comforter_Brush({
 
 
 export default function Home() {
+  const [activeTab, setActiveTab] = React.useState(1);
   return (
     <Container fluid className={`p-0 ${styles.main}`}>
       <Container>
@@ -31,21 +34,21 @@ export default function Home() {
             <h3 style={{ color: 'white' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
           </Col>
           <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Home</samp></a>
-            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Projects</samp></a>
-            <a className={styles.nav_item} style={{ textDecoration: 'none' }}><samp>Contact</samp></a>
+            <a onClick={()=> setActiveTab(1)} className={`${styles.nav_item}`} style={{ textDecoration: 'none', color: activeTab == 1 ? PRIMARY : GRAY}}><samp>Home</samp></a>
+            <a onClick={()=> setActiveTab(2)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 2 ? PRIMARY : GRAY }}><samp>Projects</samp></a>
+            <a onClick={()=> setActiveTab(3)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 3 ? PRIMARY : GRAY }}><samp>Contact</samp></a>
           </Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col lg={6} style={{ color: '#ffff' }} className='d-flex align-items-center'>
-            <div>
+          <Col lg={6} style={{ color: '#ffff' }} className={`${styles.center} d-flex align-items-center`}>
+            <div style={{textAlign:'center'}}>
               {/* <h6>Ahoy..!</h6>
-            <h6>I'm </h6> */}
-              <h1>Joydeep Setua</h1>
-              <h4>(Mobile App Developer)</h4>
-              <p>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects, specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools.</p>
+              <h6>I'm </h6> */}
+              <h1 style={{fontFamily: 'inherit', fontSize:70, color:PRIMARY}}>Joydeep Setua</h1>
+              <h4 style={{fontFamily:'monospace', color:PRIMARY }}>(Mobile App Developer)</h4><br/><br/>
+              <p style={{fontFamily:'monospace', lineHeight:2}}>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects, specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools.</p>
 
             </div>
           </Col>
