@@ -42,11 +42,11 @@ export default function Home() {
       </Container>
       <Container>
         <Row>
-          <Col lg={6} style={{ color: '#ffff' }} className={`${styles.center} d-flex align-items-center`}>
+          <Col lg={6} style={{ color: '#ffff' }} className={`${styles.center} d-flex align-items-center p-1`}>
             <div style={{ textAlign: 'center' }}>
               {/* <h6>Ahoy..!</h6>
               <h6>I'm </h6> */}
-              <h1 style={{ fontFamily: 'inherit', fontSize: 70, color: PRIMARY }}>Joydeep Setua</h1>
+              <h1 style={{ fontFamily: 'cursive', fontSize: 70, color: WHITE }}>Joydeep Setua</h1>
               <h4 style={{ fontFamily: 'monospace', color: PRIMARY }}>(Mobile App Developer)</h4><br /><br />
               <p style={{ fontFamily: 'monospace', lineHeight: 2 }}>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects, specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools.</p>
 
