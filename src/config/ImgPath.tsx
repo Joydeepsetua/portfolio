@@ -16,12 +16,24 @@ export const reactLogo = '/react.png';
 export const reduxLogo = '/redux.png';
 export const xcodeLogo = '/xcode.png';
 
+export const themeAndroidLogo = '/skill/android-studio.png';
+export const themeFirebaseLogo = '/skill/firebase.png';
+export const themeGithubLogo = '/skill/github.png';
+export const themeMongodbLogo = '/skill/mongodb.png';
+export const themeMysqlLogo = '/skill/mysql.png';
+export const themeNodeLogo = '/skill/node.png';
+export const themeNpmLogo = '/skill/npm.png';
+export const themeReactNativeLogo = '/skill/react-native.png';
+export const themeReduxLogo = '/skill/redux.png';
+export const themeXcodeLogo = '/skill/xcode.png';
+
 export const stackurLogo = '/stackur.png';
 export const srijanLogo = '/srijan.png';
 export const abisLogo = '/abis.png';
 export const lazizLogo = '/laziz.png';
 export const bjymLogo = '/bjym.png';
 export const paikraLogo = '/paikra.png';
+export const myibLogo = '/myib.png';
 
 
 // Icons

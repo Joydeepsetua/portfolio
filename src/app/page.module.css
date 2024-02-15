@@ -71,12 +71,6 @@
   transform: translateZ(0);
 }
 
-/* .profile_photo {
-  position: relative;
-  filter: drop-shadow(0 0 0.8rem rgba(57, 203, 249, 0.8));
-  border-radius: var(--border-radius);
-} */
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -116,5 +110,18 @@
   .icon:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+}
+.animate-photo {
+  animation-name: abs;
+  animation-duration: 4s;
+}
+@keyframes abs {
+  0% {
+    right: -100%;
+    background-color: red;
+  }
+  100%{
+    right: 0%;
   }
 }

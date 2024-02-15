@@ -18,6 +18,7 @@ import {
     linkedinFill,
     linkedinOutline,
     mongodbLogo,
+    myibLogo,
     mysqlLogo,
     nodeLogo,
     npmLogo,
@@ -28,6 +29,16 @@ import {
     stackOverflowFill,
     stackOverflowOutline,
     stackurLogo,
+    themeAndroidLogo,
+    themeFirebaseLogo,
+    themeGithubLogo,
+    themeMongodbLogo,
+    themeMysqlLogo,
+    themeNodeLogo,
+    themeNpmLogo,
+    themeReactNativeLogo,
+    themeReduxLogo,
+    themeXcodeLogo,
     twitterFill,
     twitterOutline,
     xcodeLogo,
@@ -108,6 +119,79 @@ export const SKILLS = [
     },
 ];
 
+export const THEME_SKILLS = [
+    {
+        id: 1,
+        title: "React-Native",
+        path: themeReactNativeLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 2,
+        title: "Redux",
+        path: themeReduxLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 3,
+        title: "Android",
+        path: themeAndroidLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 4,
+        title: "Xcode",
+        path: themeXcodeLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 5,
+        title: "Node",
+        path: themeNodeLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 6,
+        title: "Mongo DB",
+        path: themeMongodbLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 7,
+        title: "MySQL",
+        path: themeMysqlLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 8,
+        title: "Firebase",
+        path: themeFirebaseLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 9,
+        title: "npm",
+        path: themeNpmLogo,
+        width: 50,
+        height: 50
+    },
+    {
+        id: 10,
+        title: "GitHub",
+        path: themeGithubLogo,
+        width: 50,
+        height: 50
+    },
+];
+
 export const PROJECTS = [
     {
         id: 1,
@@ -160,6 +244,15 @@ export const PROJECTS = [
         discription: 'Paikra',
         time: 'Jun 2023 - Jan 2023',
         path: paikraLogo,
+        width: 50,
+        height: 48
+    },
+    {
+        id: 7,
+        title: "MYIB",
+        discription: 'MyIB',
+        time: 'Jun 2023 - Jan 2023',
+        path: myibLogo,
         width: 50,
         height: 48
     },
