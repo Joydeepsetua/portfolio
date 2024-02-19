@@ -7,6 +7,7 @@ import { sheetingWithDesktop } from '@/config/ImgPath'
 import { GRAY, LIGHTBLACK, PRIMARY, WHITE } from '@/config/Colors';
 import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
+import { motion } from "framer-motion"
 import React from 'react';
 
 const roboto = Comforter_Brush({
@@ -14,6 +15,15 @@ const roboto = Comforter_Brush({
   subsets: ['latin'],
   display: 'swap'
 })
+
+const right_to_left = {
+  hidden: { opacity: 0, x: 200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+}
+const left_to_right = {
+  hidden: { opacity: 0, x: -210, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+}
 
 
 export default function Home() {
@@ -43,41 +53,55 @@ export default function Home() {
             <div style={{ textAlign: 'center' }}>
               {/* <h6>Ahoy..!</h6>
               <h6>I'm </h6> */}
-              <h1 style={{ fontFamily: 'cursive', fontSize: 70, color: WHITE }}>Joydeep Setua</h1>
-              <h4 style={{ fontFamily: 'monospace', color: PRIMARY }}>(Mobile App Developer)</h4><br /><br />
-              <p style={{ fontFamily: 'monospace', lineHeight: 2 }}>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects.</p>
-              {/* specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools. */}
-              <div className='d-flex justify-content-center mt-5'>
-                {SOCIAL_MEDIA.map((item: any) => {
-                  const [isHover, setIsHover] = React.useState(false)
-                  return (
-                    <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
-                      onMouseEnter={() => setIsHover(true)}
-                      onMouseLeave={() => setIsHover(false)}>
-                      <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
-                        <Image
-                          src={isHover ? item.path_fill : item.path_outline}
-                          alt={item.title}
-                          width={item.width}
-                          height={item.height}
-                          className='d-flex justify-content-center align-items-center'
-                        />
-                      </a>
-                    </div>
-                  )
-                })}
-              </div>
+              <motion.main
+                variants={left_to_right}
+                initial="hidden"
+                animate="enter"
+                transition={{ type: "linear" }}
+              >
+                <h1 style={{ fontFamily: 'cursive', fontSize: 70, color: WHITE }}>Joydeep Setua</h1>
+                <h4 style={{ fontFamily: 'monospace', color: PRIMARY }}>(Mobile App Developer)</h4><br /><br />
+                <p style={{ fontFamily: 'monospace', lineHeight: 2 }}>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects.</p>
+                {/* specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools. */}
+                <div className='d-flex justify-content-center mt-5'>
+                  {SOCIAL_MEDIA.map((item: any) => {
+                    const [isHover, setIsHover] = React.useState(false)
+                    return (
+                      <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
+                        onMouseEnter={() => setIsHover(true)}
+                        onMouseLeave={() => setIsHover(false)}>
+                        <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
+                          <Image
+                            src={isHover ? item.path_fill : item.path_outline}
+                            alt={item.title}
+                            width={item.width}
+                            height={item.height}
+                            className='d-flex justify-content-center align-items-center'
+                          />
+                        </a>
+                      </div>
+                    )
+                  })}
+                </div>
+              </motion.main>
             </div>
           </Col>
           <Col className={styles.center}>
-            <Image
-              className={`p-1 animate-photo`}
-              src={sheetingWithDesktop}
-              alt="Profile photo"
-              width={400}
-              height={450}
-              priority
-            />
+            <motion.main
+              variants={right_to_left}
+              initial="hidden"
+              animate="enter"
+              transition={{ type: "linear" }}
+            >
+              <Image
+                className={`p-1 animate-photo`}
+                src={sheetingWithDesktop}
+                alt="Profile photo"
+                width={400}
+                height={450}
+                priority
+              />
+            </motion.main>
           </Col>
         </Row>
       </Container>
@@ -144,18 +168,18 @@ export default function Home() {
       {/* Footer */}
       <div id='footer' style={{ backgroundColor: LIGHTBLACK, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>
         <Container>
-          <Row style={{ alignContent: 'center', justifyContent:'center' }}>
+          <Row style={{ alignContent: 'center', justifyContent: 'center' }}>
             <Col lg={6} className='d-flex justify-content-center'>
-              <span style={{ fontSize: 13, color: GRAY, marginRight:5 }}>{`Made with ❤️ by`}</span>
+              <span style={{ fontSize: 13, color: GRAY, marginRight: 5 }}>{`Made with ❤️ by`}</span>
               <span style={{ fontSize: 13, color: PRIMARY }}>Joydeep Setua</span>
             </Col>
             <Col className='d-flex justify-content-center'>
-              <span style={{ fontSize: 13, color: GRAY, marginRight:5 }}>{`Icons used by `}</span>
+              <span style={{ fontSize: 13, color: GRAY, marginRight: 5 }}>{`Icons used by `}</span>
               <a style={{ fontSize: 13, color: PRIMARY }} target="_blank" href="https://icons8.com" >Icons8</a>
             </Col>
           </Row>
         </Container>
       </div>
-    </Container>
+    </Container >
   )
 }
