@@ -40,7 +40,7 @@
 
 .center {
   display: flex;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   align-items: center;
   justify-content: center;
   position: relative;
@@ -65,16 +65,10 @@
 .center::before,
 .center::after {
   content: '';
-  left: 50%;
+  /* left: 50%; */
   position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
-}
-
-.profile_photo {
-  position: relative;
-  filter: drop-shadow(0 0 0.8rem rgba(57, 203, 249, 0.8));
-  border-radius: var(--border-radius);
 }
 
 /* Enable hover only on non-touch devices */
@@ -103,12 +97,13 @@
 
 .nav_item:hover {
   transform: none;
-  color: rgba(var(--primary-color-rgba));
+  color: rgba(var(--primary-color-rgba)) !important;
 }
 
 .icon {
   border-radius: 8px;
   background-color: #212934;
+  border: 1px solid #212934;
   background-size: contain;
 }
 
