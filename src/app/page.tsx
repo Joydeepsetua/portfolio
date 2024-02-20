@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image'
 import styles from './page.module.css'
 import { Container, Row, Col } from 'react-bootstrap'
-import { sheetingWithDesktop } from '@/config/ImgPath'
-import { GRAY, LIGHTBLACK, PRIMARY, WHITE } from '@/config/Colors';
+import { callIcon, joydeepsetua, mailIcon, sheetingWithDesktop } from '@/config/ImgPath'
+import { GRAY, LIGHTBLACK, FOOTER, PRIMARY, WHITE } from '@/config/Colors';
 import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
 import { motion } from "framer-motion"
@@ -176,8 +176,73 @@ export default function Home() {
         </Container>
       </div>
 
+      {/* Contact */}
+      <div id='contact' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }} className='m-0 pb-5'>
+        <Container>
+          <div className='d-flex justify-content-center m-3'>
+            <h3 style={{ fontFamily: 'monospace' }}>Contact Me</h3>
+          </div>
+          <Row>
+            <Col>
+              <div style={{ textAlign: 'center' }}>
+                <motion.main
+                  variants={left_to_right}
+                  initial="hidden"
+                  animate="enter"
+                  transition={{ type: "linear" }}
+                >
+                  <Image
+                    className={`p-1 animate-photo`}
+                    src={joydeepsetua}
+                    alt="Profile photo"
+                    width={300}
+                    height={300}
+                    style={{ borderRadius: '50%' }}
+                    priority
+                  />
+                </motion.main>
+              </div>
+            </Col>
+            <Col lg={6} style={{ color: '#ffff' }} className={`d-flex align-items-center p-1`}>
+              <div style={{ textAlign: 'center', marginTop:20 }}>
+                <motion.main
+                  variants={right_to_left}
+                  initial="hidden"
+                  animate="enter"
+                  transition={{ type: "linear" }}
+                >
+                  <a style={{ fontFamily: 'monospace', color: 'lightgray' }}>+91 9713231022</a><br />
+                  <a style={{ fontFamily: 'monospace', color: 'lightgray' }}>joydeepsetua86@gmail.com</a>
+
+                  <div className='d-flex justify-content-center mt-4'>
+                    {SOCIAL_MEDIA.map((item: any) => {
+                      const [isHover, setIsHover] = React.useState(false)
+                      return (
+                        <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
+                          onMouseEnter={() => setIsHover(true)}
+                          onMouseLeave={() => setIsHover(false)}>
+                          <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
+                            <Image
+                              src={isHover ? item.path_fill : item.path_outline}
+                              alt={item.title}
+                              width={item.width}
+                              height={item.height}
+                              className='d-flex justify-content-center align-items-center'
+                            />
+                          </a>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </motion.main>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
       {/* Footer */}
-      <div id='footer' style={{ backgroundColor: LIGHTBLACK, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>
+      <div id='footer' style={{ backgroundColor: FOOTER, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>
         <Container>
           <Row style={{ alignContent: 'center', justifyContent: 'center' }}>
             <Col lg={6} className='d-flex justify-content-center'>

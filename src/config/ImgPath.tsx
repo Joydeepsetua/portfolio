@@ -1,5 +1,6 @@
 // Images
 export const profileImage = '/joydeep.jpeg';
+export const joydeepsetua = '/joydeepsetua.jpg';
 export const sheetingWithDesktop = '/sheetingwithdesktop.svg';
 
 // Logo
@@ -55,4 +56,7 @@ export const youtubeFill = '/socialmedia/youtube-fill.svg';
 export const youtubeOutline = '/socialmedia/youtube-outline.svg';
 export const stackOverflowFill = '/socialmedia/stack-overflow-fill.svg';
 export const stackOverflowOutline = '/socialmedia/stack-overflow-outline.svg';
+
+export const callIcon = '/call.png';
+export const mailIcon = '/mail.png';
 
