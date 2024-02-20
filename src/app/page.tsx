@@ -17,12 +17,16 @@ const roboto = Comforter_Brush({
 })
 
 const right_to_left = {
-  hidden: { opacity: 0, x: 200, y: 0 },
+  hidden: { opacity: 0, x: 100, y: 0 },
   enter: { opacity: 1, x: 0, y: 0 },
 }
 const left_to_right = {
-  hidden: { opacity: 0, x: -210, y: 0 },
+  hidden: { opacity: 0, x: -100, y: 0 },
   enter: { opacity: 1, x: 0, y: 0 },
+}
+const up_to_down = {
+  hidden: { opacity: 0, x: 0, y: -50 },
+  enter: { opacity: 1, x: 0, y: 0 }
 }
 
 
@@ -33,17 +37,24 @@ export default function Home() {
     <Container fluid className={`p-0 ${styles.main}`}>
       {/* Navbar */}
       <Container>
-        <Row className='mt-5 mb-5'>
-          <Col className='align-items-center'>
-            <h3 style={{ color: 'white' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
-          </Col>
-          <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <a href="/#" onClick={() => setActiveTab(1)} className={`${styles.nav_item}`} style={{ textDecoration: 'none', color: activeTab == 1 ? PRIMARY : GRAY }}><samp>Home</samp></a>
-            <a href="/#projects" onClick={() => setActiveTab(2)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 2 ? PRIMARY : GRAY }}><samp>Projects</samp></a>
-            <a href="/#skill" onClick={() => setActiveTab(3)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 3 ? PRIMARY : GRAY }}><samp>Skill</samp></a>
-            <a href="/#contact" onClick={() => setActiveTab(4)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 4 ? PRIMARY : GRAY }}><samp>Contact</samp></a>
-          </Col>
-        </Row>
+        <motion.main
+          variants={up_to_down}
+          initial="hidden"
+          animate="enter"
+          transition={{ type: "linear" }}
+        >
+          <Row className='mt-5 mb-5'>
+            <Col className='align-items-center'>
+              <h3 style={{ color: 'white' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
+            </Col>
+            <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <a href="/#" onClick={() => setActiveTab(1)} className={`${styles.nav_item}`} style={{ textDecoration: 'none', color: activeTab == 1 ? PRIMARY : GRAY }}><samp>Home</samp></a>
+              <a href="/#projects" onClick={() => setActiveTab(2)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 2 ? PRIMARY : GRAY }}><samp>Projects</samp></a>
+              <a href="/#skill" onClick={() => setActiveTab(3)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 3 ? PRIMARY : GRAY }}><samp>Skill</samp></a>
+              <a href="/#contact" onClick={() => setActiveTab(4)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 4 ? PRIMARY : GRAY }}><samp>Contact</samp></a>
+            </Col>
+          </Row>
+        </motion.main>
       </Container>
 
       {/* Home */}
