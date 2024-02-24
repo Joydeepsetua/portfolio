@@ -28,13 +28,6 @@ export const themeReactNativeLogo = '/skill/react-native.png';
 export const themeReduxLogo = '/skill/redux.png';
 export const themeXcodeLogo = '/skill/xcode.png';
 
-export const stackurLogo = '/stackur.png';
-export const srijanLogo = '/srijan.png';
-export const abisLogo = '/abis.png';
-export const lazizLogo = '/laziz.png';
-export const bjymLogo = '/bjym.png';
-export const paikraLogo = '/paikra.png';
-export const myibLogo = '/myib.png';
 
 
 // Icons

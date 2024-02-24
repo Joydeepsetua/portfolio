@@ -151,7 +151,7 @@ export default function Home() {
       <div id='projects' style={{ color: WHITE, justifyContent: 'center' }} className='m-5'>
         <Container>
           <div className='d-flex justify-content-center m-3'>
-            <h3 style={{ fontFamily: 'monospace' }}>Projects</h3>
+            <h3 style={{ fontFamily: 'monospace' }}>My Projects</h3>
           </div>
           <Row style={{ justifyContent: 'center' }}>
             {PROJECTS.map((item: any) => {
