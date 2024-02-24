@@ -1,7 +1,5 @@
 import {
-    abisLogo,
     androidLogo,
-    bjymLogo,
     facebookFill,
     facebookOutline,
     firebaseLogo,
@@ -12,23 +10,18 @@ import {
     googleOutline,
     instaFill,
     instaOutline,
-    lazizLogo,
     leetcodeFill,
     leetcodeOutline,
     linkedinFill,
     linkedinOutline,
     mongodbLogo,
-    myibLogo,
     mysqlLogo,
     nodeLogo,
     npmLogo,
-    paikraLogo,
     reactLogo,
     reduxLogo,
-    srijanLogo,
     stackOverflowFill,
     stackOverflowOutline,
-    stackurLogo,
     themeAndroidLogo,
     themeFirebaseLogo,
     themeGithubLogo,
@@ -193,69 +186,15 @@ export const THEME_SKILLS = [
 ];
 
 export const PROJECTS = [
-    {
-        id: 1,
-        title: "STACKUR",
-        discription: 'stackur',
-        time: 'Jun 2023 - Jan 2024',
-        path: stackurLogo,
-        width: 50,
-        height: 50
-    },
-    {
-        id: 2,
-        title: "Srijan academy",
-        discription: 'Srijan academy',
-        time: '',
-        path: srijanLogo,
-        width: 45,
-        height: 45
-    },
-    {
-        id: 3,
-        title: "LAZIZ",
-        discription: 'Laziz',
-        time: '',
-        path: lazizLogo,
-        width: 45,
-        height: 45
-    },
-    {
-        id: 4,
-        title: "Abis Shipment",
-        discription: 'Abis Shipment',
-        time: '',
-        path: abisLogo,
-        width: 80,
-        height: 40
-    },
-    {
-        id: 5,
-        title: "BJYM",
-        discription: 'BJYM',
-        time: 'Jun 2023 - Jan 2023',
-        path: bjymLogo,
-        width: 50,
-        height: 48
-    },
-    {
-        id: 6,
-        title: "Paikra",
-        discription: 'Paikra',
-        time: 'Jun 2023 - Jan 2023',
-        path: paikraLogo,
-        width: 50,
-        height: 48
-    },
-    {
-        id: 7,
-        title: "MYIB",
-        discription: 'MyIB',
-        time: 'Jun 2023 - Jan 2023',
-        path: myibLogo,
-        width: 50,
-        height: 48
-    },
+    // {
+    //     id: 1,
+    //     title: "Get Attendance",
+    //     discription: 'Get Attendance',
+    //     path: githubLogo,
+    //     url:'https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=drive_link',
+    //     width: 50,
+    //     height: 50
+    // },
 ];
 
 export const SOCIAL_MEDIA = [
