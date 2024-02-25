@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import { callIcon, joydeepsetua, mailIcon, sheetingWithDesktop } from '@/config/ImgPath'
 import { GRAY, LIGHTBLACK, FOOTER, PRIMARY, WHITE } from '@/config/Colors';
-import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS } from '../config/Constant';
+import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
 import { motion } from "framer-motion"
 import React from 'react';
@@ -74,7 +74,7 @@ export default function Home() {
                 <h4 style={{ fontFamily: 'monospace', color: PRIMARY }}>(Mobile App Developer)</h4><br /><br />
                 <p style={{ fontFamily: 'monospace', lineHeight: 2 }}>A React Native developer with over 1 year of hands-on experience in crafting user-friendly mobile applications. I've successfully led the development of 5+ projects.</p>
                 {/* specializing in diverse domains such as E-commerce, Education with live classes, and Employee management tools. */}
-                <div className='d-flex justify-content-center mt-5'>
+                <div className='d-md-none d-flex justify-content-center mt-5'>
                   {SOCIAL_MEDIA.map((item: any) => {
                     const [isHover, setIsHover] = React.useState(false)
                     return (
@@ -103,6 +103,7 @@ export default function Home() {
               initial="hidden"
               animate="enter"
               transition={{ type: "linear" }}
+              style={{ display: 'flex', justifyContent: 'space-evenly' }}
             >
               <Image
                 className={`p-1 animate-photo`}
@@ -112,6 +113,37 @@ export default function Home() {
                 height={450}
                 priority
               />
+              <div className='d-none d-md-block align-self-center' style={{}}>
+                <hr
+                  style={{
+                    background: PRIMARY,
+                    color: PRIMARY,
+                    height: "3px",
+                    border: "none",
+                    rotate: '90deg',
+                    marginBottom: 50,
+                    paddingLeft: 75
+                  }}
+                />
+                {SOCIAL_MEDIA.map((item: any) => {
+                  const [isHover, setIsHover] = React.useState(false)
+                  return (
+                    <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
+                      onMouseEnter={() => setIsHover(true)}
+                      onMouseLeave={() => setIsHover(false)}>
+                      <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
+                        <Image
+                          src={isHover ? item.path_fill : item.path_outline}
+                          alt={item.title}
+                          width={item.width}
+                          height={item.height}
+                          className='d-flex justify-content-center align-items-center'
+                        />
+                      </a>
+                    </div>
+                  )
+                })}
+              </div>
             </motion.main>
           </Col>
         </Row>
@@ -177,69 +209,88 @@ export default function Home() {
       </div>
 
       {/* Contact */}
-      <div id='contact' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }} className='m-0 pb-5'>
+      <div id='contact' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }}>
         <Container>
           <div className='d-flex justify-content-center m-3'>
             <h3 style={{ fontFamily: 'monospace' }}>Contact Me</h3>
           </div>
-          <Row>
-            <Col>
-              <div style={{ textAlign: 'center' }}>
-                <motion.main
-                  variants={left_to_right}
-                  initial="hidden"
-                  animate="enter"
-                  transition={{ type: "linear" }}
-                >
-                  <Image
-                    className={`p-1 animate-photo`}
-                    src={joydeepsetua}
-                    alt="Profile photo"
-                    width={300}
-                    height={300}
-                    style={{ borderRadius: '50%' }}
-                    priority
-                  />
-                </motion.main>
+
+          <Row className='d-flex justify-content-center m-3'>
+            {CONTACT.map((item: any) => {
+              return (
+                <Col lg={4} key={item.id} className={`${styles.icon} p-3 m-3`} style={{ zIndex: 100, cursor: 'pointer' }}>
+                  <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'
+                    style={{ color: 'white', textDecoration: 'none', fontFamily: 'monospace' }}>
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={item.width}
+                      height={item.height}
+                      className='d-flex justify-content-center align-items-center me-3'
+                    />
+                    {item.label}
+                  </a>
+                </Col>
+              )
+            })}
+          </Row>
+          {/* Social media  */}
+          <Row style={{ alignItems: 'center', marginBottom:-22 }}>
+            <Col lg={4}>
+              <hr
+                style={{
+                  background: PRIMARY,
+                  color: PRIMARY,
+                  zIndex: 1000,
+                  height: "2px",
+                  border: "none",
+                }}
+              />
+            </Col>
+            <Col lg={4} className='align-items-center'>
+              <div className='d-flex justify-content-center'>
+                {SOCIAL_MEDIA.map((item: any) => {
+                  const [isHover, setIsHover] = React.useState(false)
+                  return (
+                    <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
+                      onMouseEnter={() => setIsHover(true)}
+                      onMouseLeave={() => setIsHover(false)}>
+                      <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
+                        <Image
+                          src={isHover ? item.path_fill : item.path_outline}
+                          alt={item.title}
+                          width={item.width}
+                          height={item.height}
+                          className='d-flex justify-content-center align-items-center'
+                        />
+                      </a>
+                    </div>
+                  )
+                })}
               </div>
             </Col>
-            <Col lg={6} style={{ color: '#ffff' }} className={`d-flex align-items-center p-1`}>
-              <div style={{ textAlign: 'center', marginTop:20 }}>
-                <motion.main
-                  variants={right_to_left}
-                  initial="hidden"
-                  animate="enter"
-                  transition={{ type: "linear" }}
-                >
-                  <a style={{ fontFamily: 'monospace', color: 'lightgray' }}>+91 9713231022</a><br />
-                  <a style={{ fontFamily: 'monospace', color: 'lightgray' }}>joydeepsetua86@gmail.com</a>
-
-                  <div className='d-flex justify-content-center mt-4'>
-                    {SOCIAL_MEDIA.map((item: any) => {
-                      const [isHover, setIsHover] = React.useState(false)
-                      return (
-                        <div key={item.id} className='p-0 m-2' style={{ zIndex: 100, cursor: 'pointer' }}
-                          onMouseEnter={() => setIsHover(true)}
-                          onMouseLeave={() => setIsHover(false)}>
-                          <a className='d-flex justify-content-center align-items-center' href={item.url} target='_blank'>
-                            <Image
-                              src={isHover ? item.path_fill : item.path_outline}
-                              alt={item.title}
-                              width={item.width}
-                              height={item.height}
-                              className='d-flex justify-content-center align-items-center'
-                            />
-                          </a>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </motion.main>
-              </div>
+            <Col lg={4}>
+              <hr
+                style={{
+                  background: PRIMARY,
+                  color: PRIMARY,
+                  zIndex: 1000,
+                  height: "2px",
+                  border: "none",
+                }}
+              />
             </Col>
           </Row>
+
         </Container>
-      </div>
+      </div >
+      <div id='contact' style={{ color: WHITE, justifyContent: 'center' }} className='m-0'>
+        <Container>
+          <div className='d-flex justify-content-center m-5 p-5'>
+            <h3 style={{ fontFamily: 'cursive' }}>" Thanks for Scrolling "</h3>
+          </div>
+        </Container>
+      </div >
 
       {/* Footer */}
       <div id='footer' style={{ backgroundColor: FOOTER, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>

@@ -1,5 +1,6 @@
 import {
     androidLogo,
+    callIcon,
     facebookFill,
     facebookOutline,
     firebaseLogo,
@@ -14,6 +15,8 @@ import {
     leetcodeOutline,
     linkedinFill,
     linkedinOutline,
+    location,
+    mailIcon,
     mongodbLogo,
     mysqlLogo,
     nodeLogo,
@@ -195,6 +198,36 @@ export const PROJECTS = [
     //     width: 50,
     //     height: 50
     // },
+];
+
+export const CONTACT = [
+    {
+        id: 1,
+        title: "Phone",
+        icon: callIcon,
+        url:'',
+        label : '+91 9713231022',
+        width: 30,
+        height: 30
+    },
+    {
+        id: 2,
+        title: "email",
+        icon: mailIcon,
+        url:'',
+        label : 'joydeepsetua86@gmail.com',
+        width: 30,
+        height: 30
+    },
+    {
+        id: 3,
+        title: "location",
+        icon: location,
+        url:'',
+        label : 'Chhattisgarh, India 🇮🇳',
+        width: 30,
+        height: 30
+    },
 ];
 
 export const SOCIAL_MEDIA = [

@@ -52,4 +52,5 @@ export const stackOverflowOutline = '/socialmedia/stack-overflow-outline.svg';
 
 export const callIcon = '/call.png';
 export const mailIcon = '/mail.png';
+export const location = '/location.png';
 

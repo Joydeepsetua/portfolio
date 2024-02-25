@@ -37,12 +37,11 @@
   line-height: 1.5;
   max-width: 30ch;
 }
-
 .center {
-  display: flex;
+  /* display: flex; */
   /* align-self: flex-end; */
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   position: relative;
   padding: 4rem 0;
 }
