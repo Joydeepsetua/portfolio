@@ -112,3 +112,10 @@
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 }
+.exp_des{
+  border-left: 2px solid #fff;
+  background-size: contain;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 40px;
+}

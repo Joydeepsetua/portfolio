@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import { callIcon, joydeepsetua, mailIcon, sheetingWithDesktop } from '@/config/ImgPath'
 import { GRAY, LIGHTBLACK, FOOTER, PRIMARY, WHITE } from '@/config/Colors';
-import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT } from '../config/Constant';
+import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT, EXPERIENCE } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
 import { motion } from "framer-motion"
 import React from 'react';
@@ -28,6 +28,9 @@ const up_to_down = {
   hidden: { opacity: 0, x: 0, y: -50 },
   enter: { opacity: 1, x: 0, y: 0 }
 }
+const DynamicHTMLRenderer = ({htmlContent}: any) => {
+  return <div style={{fontFamily:'monospace'}} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
 
 
 export default function Home() {
@@ -58,7 +61,7 @@ export default function Home() {
       </Container>
 
       {/* Home */}
-      <Container>
+      <Container style={{ padding: 20 }}>
         <Row>
           <Col lg={6} style={{ color: '#ffff' }} className={`${styles.center} d-flex align-items-center p-1`}>
             <div style={{ textAlign: 'center' }}>
@@ -113,7 +116,7 @@ export default function Home() {
                 height={450}
                 priority
               />
-              <div className='d-none d-md-block align-self-center' style={{}}>
+              <div className='d-none d-md-block align-self-center' style={{ zIndex: 10 }}>
                 <hr
                   style={{
                     background: PRIMARY,
@@ -208,8 +211,50 @@ export default function Home() {
         </Container>
       </div>
 
+      {/* Experience */}
+      <div id='experience' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }}>
+        <Container>
+          <div className='d-flex justify-content-center m-5'>
+            <h3 style={{ fontFamily: 'monospace' }}>Experience</h3>
+          </div>
+
+          <Row className='d-flex justify-content-center m-3 mb-5'>
+            {EXPERIENCE.map((item: any) => {
+              return (
+                <Row key={item.id} className={`p-3`}>
+                  <Row className='d-flex justify-content-between'>
+                    <Col md={6} sm={12}>
+                      <a className='d-flex align-items-center' href={item.website} target='_blank'
+                        style={{ color: 'white', textDecoration: 'none', fontFamily: 'serif', cursor: 'pointer' }}>
+                        <Image
+                          src={item.logo}
+                          alt={item.company}
+                          width={50}
+                          height={50}
+                          className={`d-flex justify-content-center align-items-center me-3 ${styles.icon}`}
+                        />
+                        <div>
+                          <h4 className='p-0 m-0'>{item.profile}</h4>
+                          <h6 className='p-0 m-0' style={{ color: GRAY }}>{item.company}</h6>
+                        </div>
+                      </a>
+                    </Col>
+                    <Col md={6} sm={12} className='d-flex justify-content-center'>
+                      <p style={{ color: GRAY }}>{`${item.from} - ${item.to}`}</p>
+                    </Col>
+                  </Row>
+                  <div className={`${styles.exp_des}`}>
+                    <DynamicHTMLRenderer htmlContent={item.description} />
+                  </div>
+                </Row>
+              )
+            })}
+          </Row>
+        </Container>
+      </div >
+
       {/* Contact */}
-      <div id='contact' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }}>
+      <div id='contact' style={{ color: WHITE, justifyContent: 'center' }}>
         <Container>
           <div className='d-flex justify-content-center m-3'>
             <h3 style={{ fontFamily: 'monospace' }}>Contact Me</h3>
@@ -235,14 +280,14 @@ export default function Home() {
             })}
           </Row>
           {/* Social media  */}
-          <Row style={{ alignItems: 'center', marginBottom:-22 }}>
+          <Row style={{ alignItems: 'center', marginBottom: -22 }}>
             <Col lg={4}>
               <hr
                 style={{
                   background: PRIMARY,
                   color: PRIMARY,
                   zIndex: 1000,
-                  height: "2px",
+                  height: "4px",
                   border: "none",
                 }}
               />
@@ -275,7 +320,7 @@ export default function Home() {
                   background: PRIMARY,
                   color: PRIMARY,
                   zIndex: 1000,
-                  height: "2px",
+                  height: "4px",
                   border: "none",
                 }}
               />
@@ -284,10 +329,12 @@ export default function Home() {
 
         </Container>
       </div >
-      <div id='contact' style={{ color: WHITE, justifyContent: 'center' }} className='m-0'>
+
+      {/* Thanks */}
+      <div id='thanks' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }} className='m-0'>
         <Container>
           <div className='d-flex justify-content-center m-5 p-5'>
-            <h3 style={{ fontFamily: 'cursive' }}>" Thanks for Scrolling "</h3>
+            <h3 style={{ fontFamily: 'cursive' }}>"Thanks for Scrolling"</h3>
           </div>
         </Container>
       </div >

@@ -54,3 +54,8 @@ export const callIcon = '/call.png';
 export const mailIcon = '/mail.png';
 export const location = '/location.png';
 
+
+// company
+export const sthanave = '/company/sthanave.png';
+export const ideliver = '/company/ideliver.png';
+
