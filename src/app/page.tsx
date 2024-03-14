@@ -28,8 +28,8 @@ const up_to_down = {
   hidden: { opacity: 0, x: 0, y: -50 },
   enter: { opacity: 1, x: 0, y: 0 }
 }
-const DynamicHTMLRenderer = ({htmlContent}: any) => {
-  return <div style={{fontFamily:'monospace'}} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+const DynamicHTMLRenderer = ({ htmlContent }: any) => {
+  return <div style={{ fontFamily: 'monospace' }} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 };
 
 
@@ -188,23 +188,33 @@ export default function Home() {
           <div className='d-flex justify-content-center m-3'>
             <h3 style={{ fontFamily: 'monospace' }}>My Projects</h3>
           </div>
-          <Row style={{ justifyContent: 'center' }}>
+          <Row className='d-flex justify-content-center m-3 mb-5'>
             {PROJECTS.map((item: any) => {
               return (
-                <Col lg={2} md={3} sm={4} xs={4} style={{ position: 'relative' }} key={item.id} className='p-0 m-2'>
-                  <div className={`${styles.icon} p-2 h-100 d-grid align-items-center`}>
-                    <div className='d-flex justify-content-center align-items-center'>
-                      <Image
-                        src={item.path}
-                        alt={item.title}
-                        width={item.width}
-                        height={item.height}
-                        className='d-flex justify-content-center align-items-center'
-                      />
-                    </div>
-                    <p className='p-0 m-0 text-center'>{item.title}</p>
+                <Row key={item.id} className={`p-3`}>
+                  <Row className='d-flex justify-content-between'>
+                    <Col md={6} sm={12}>
+                      <a className='d-flex align-items-center' href={item.url} target='_blank'
+                        style={{ color: 'white', textDecoration: 'none', fontFamily: 'serif', cursor: 'pointer' }}>
+                        <Image
+                          src={item.logo}
+                          alt={item.title}
+                          width={50}
+                          height={50}
+                          className={`d-flex justify-content-center align-items-center me-3 ${styles.icon}`}
+                          style={{backgroundColor:'white'}}
+                        />
+                        <div>
+                          <h4 className='p-0 m-0'>{item.title}</h4>
+                          <h6 className='p-0 m-0' style={{ color: GRAY }}>{item.shortdescription}</h6>
+                        </div>
+                      </a>
+                    </Col>
+                  </Row>
+                  <div className={`${styles.exp_des}`}>
+                    <DynamicHTMLRenderer htmlContent={item.description} />
                   </div>
-                </Col>
+                </Row>
               )
             })}
           </Row>
@@ -337,7 +347,7 @@ export default function Home() {
             <h3 style={{ fontFamily: 'cursive' }}>"Thanks for Scrolling"</h3>
           </div>
         </Container>
-      </div >
+      </div>
 
       {/* Footer */}
       <div id='footer' style={{ backgroundColor: FOOTER, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>

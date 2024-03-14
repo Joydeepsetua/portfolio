@@ -59,3 +59,7 @@ export const location = '/location.png';
 export const sthanave = '/company/sthanave.png';
 export const ideliver = '/company/ideliver.png';
 
+// projects
+export const getAttendance = '/project/getattendance.png';
+
+

@@ -4,6 +4,7 @@ import {
     facebookFill,
     facebookOutline,
     firebaseLogo,
+    getAttendance,
     githubFill,
     githubLogo,
     githubOutline,
@@ -194,8 +195,9 @@ export const PROJECTS = [
     {
         id: 1,
         title: "Get Attendance",
-        description: 'Get Attendance',
-        path: githubLogo,
+        shortdescription: 'Diploma Major Project',
+        description: 'This <b>Android application</b> is developed for daily student attendance tracking and generates monthly reports for teachers.Technologies used include <b>Android Studio</b> with <b>Java</b> and <b>SQLite Database</b>.',
+        logo: getAttendance,
         url:'https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=drive_link',
         width: 50,
         height: 50
