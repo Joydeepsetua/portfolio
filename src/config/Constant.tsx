@@ -19,6 +19,7 @@ import {
     linkedinOutline,
     location,
     mailIcon,
+    mobileVector,
     mongodbLogo,
     mysqlLogo,
     nodeLogo,
@@ -45,78 +46,78 @@ import {
     youtubeOutline
 } from "./ImgPath";
 
-export const SKILLS = [
-    {
-        id: 1,
-        title: "React-Native",
-        path: reactLogo,
-        width: 50,
-        height: 50
-    },
-    {
-        id: 2,
-        title: "Redux",
-        path: reduxLogo,
-        width: 45,
-        height: 45
-    },
-    {
-        id: 3,
-        title: "Android",
-        path: androidLogo,
-        width: 45,
-        height: 45
-    },
-    {
-        id: 4,
-        title: "Xcode",
-        path: xcodeLogo,
-        width: 48,
-        height: 48
-    },
-    {
-        id: 5,
-        title: "Node",
-        path: nodeLogo,
-        width: 48,
-        height: 48
-    },
-    {
-        id: 6,
-        title: "Mongo DB",
-        path: mongodbLogo,
-        width: 50,
-        height: 50
-    },
-    {
-        id: 7,
-        title: "MySQL",
-        path: mysqlLogo,
-        width: 55,
-        height: 50
-    },
-    {
-        id: 8,
-        title: "Firebase",
-        path: firebaseLogo,
-        width: 30,
-        height: 50
-    },
-    {
-        id: 9,
-        title: "npm",
-        path: npmLogo,
-        width: 50,
-        height: 30
-    },
-    {
-        id: 10,
-        title: "GitHub",
-        path: githubLogo,
-        width: 58,
-        height: 58
-    },
-];
+// export const SKILLS = [
+//     {
+//         id: 1,
+//         title: "React-Native",
+//         path: reactLogo,
+//         width: 50,
+//         height: 50
+//     },
+//     {
+//         id: 2,
+//         title: "Redux Toolkit",
+//         path: reduxLogo,
+//         width: 45,
+//         height: 45
+//     },
+//     {
+//         id: 3,
+//         title: "Android",
+//         path: androidLogo,
+//         width: 45,
+//         height: 45
+//     },
+//     {
+//         id: 4,
+//         title: "Xcode",
+//         path: xcodeLogo,
+//         width: 48,
+//         height: 48
+//     },
+//     {
+//         id: 5,
+//         title: "Node js",
+//         path: nodeLogo,
+//         width: 48,
+//         height: 48
+//     },
+//     {
+//         id: 6,
+//         title: "MongoDB",
+//         path: mongodbLogo,
+//         width: 50,
+//         height: 50
+//     },
+//     {
+//         id: 7,
+//         title: "MySQL",
+//         path: mysqlLogo,
+//         width: 55,
+//         height: 50
+//     },
+//     {
+//         id: 8,
+//         title: "Firebase",
+//         path: firebaseLogo,
+//         width: 30,
+//         height: 50
+//     },
+//     {
+//         id: 9,
+//         title: "npm",
+//         path: npmLogo,
+//         width: 50,
+//         height: 30
+//     },
+//     {
+//         id: 10,
+//         title: "GitHub",
+//         path: githubLogo,
+//         width: 58,
+//         height: 58
+//     },
+// ];
 
 export const THEME_SKILLS = [
     {
@@ -128,7 +129,7 @@ export const THEME_SKILLS = [
     },
     {
         id: 2,
-        title: "Redux",
+        title: "Redux Toolkit",
         path: themeReduxLogo,
         width: 50,
         height: 50
@@ -149,14 +150,14 @@ export const THEME_SKILLS = [
     },
     {
         id: 5,
-        title: "Node",
+        title: "Node.js",
         path: themeNodeLogo,
         width: 50,
         height: 50
     },
     {
         id: 6,
-        title: "Mongo DB",
+        title: "MongoDB",
         path: themeMongodbLogo,
         width: 50,
         height: 50
@@ -195,10 +196,12 @@ export const PROJECTS = [
     {
         id: 1,
         title: "Get Attendance",
-        shortdescription: 'Diploma Major Project',
-        description: 'This <b>Android application</b> is developed for daily student attendance tracking and generates monthly reports for teachers.Technologies used include <b>Android Studio</b> with <b>Java</b> and <b>SQLite Database</b>.',
+        shortdescription: 'Android application',
+        description: `&nbsp;&nbsp;&nbsp;&nbsp;This Android application is developed using <b>Android Studio</b> with <b>Java</b> and stores data in an <b>SQLite</b> database on the user's mobile phone. In this app, teachers can create classes and add students. There are two options for adding students: manual entry or CSV import. Once students are added, teachers can easily take attendance and download the reports in <b>Excel</b> and <b>PDF</b> formats. <br><br> &nbsp;&nbsp;&nbsp;&nbsp;Additionally, a standout feature enables teachers to download their own monthly reports in PDF format. These reports meticulously outline the total number of classes taught in the month, along with detailed information such as the class, subject, period, and topics covered during each class.`,
         logo: getAttendance,
-        url:'https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=drive_link',
+        vector: mobileVector,
+        live_url:'https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=drive_link',
+        github_url:'',
         width: 50,
         height: 50
     },
@@ -335,7 +338,7 @@ export const EXPERIENCE = [
         profile: 'React-Native Developer',
         logo: sthanave,
         website: 'https://sthanave.co.in/',
-        description: `Worked on a React Native app to develop <b>iOS</b> and <b>Android</b> applications and utilized <b>Redux Toolkit</b> for state management. I have integrated <b>live classes</b> using the <b>Zoom</b> service. I optimized performance by minimizing re-renders through component, optimization and reducing API calls. Furthermore, I handled two <b>Apple Developer Consoles</b> simultaneously.`,
+        description: `Worked on a React Native app to develop <b>iOS</b> and <b>Android</b> applications and utilized <b>Redux Toolkit</b> for state management. I have integrated <b>live classes</b> using the <b>Zoom SDK</b>. I optimized performance by minimizing re-renders through component, optimization and reducing API calls. Furthermore, I handled two <b>Apple Developer Consoles</b> simultaneously.`,
         from: 'Dec 2022',
         to: 'Present'
 

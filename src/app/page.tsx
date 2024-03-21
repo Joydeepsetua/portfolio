@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import { callIcon, joydeepsetua, mailIcon, sheetingWithDesktop } from '@/config/ImgPath'
 import { GRAY, LIGHTBLACK, FOOTER, PRIMARY, WHITE } from '@/config/Colors';
-import { SKILLS, PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT, EXPERIENCE } from '../config/Constant';
+import { PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT, EXPERIENCE } from '../config/Constant';
 import { Comforter_Brush } from 'next/font/google';
 import { motion } from "framer-motion"
 import React from 'react';
@@ -48,7 +48,7 @@ export default function Home() {
         >
           <Row className='mt-5 mb-5'>
             <Col className='align-items-center'>
-              <h3 style={{ color: 'white' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
+              <h3 style={{ color: 'white', userSelect: 'none' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
             </Col>
             <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <a href="/#" onClick={() => setActiveTab(1)} className={`${styles.nav_item}`} style={{ textDecoration: 'none', color: activeTab == 1 ? PRIMARY : GRAY }}><samp>Home</samp></a>
@@ -183,18 +183,18 @@ export default function Home() {
       </div>
 
       {/* Projects */}
-      <div id='projects' style={{ color: WHITE, justifyContent: 'center' }} className='m-5'>
+      <div id='projects' style={{ color: WHITE, justifyContent: 'center' }} className='mt-5'>
         <Container>
           <div className='d-flex justify-content-center m-3'>
             <h3 style={{ fontFamily: 'monospace' }}>My Projects</h3>
           </div>
-          <Row className='d-flex justify-content-center m-3 mb-5'>
+          <Row className='d-flex justify-content-center m-3'>
             {PROJECTS.map((item: any) => {
               return (
                 <Row key={item.id} className={`p-3`}>
                   <Row className='d-flex justify-content-between'>
                     <Col md={6} sm={12}>
-                      <a className='d-flex align-items-center' href={item.url} target='_blank'
+                      <a className='d-flex align-items-center' href={item.live_url} target='_blank'
                         style={{ color: 'white', textDecoration: 'none', fontFamily: 'serif', cursor: 'pointer' }}>
                         <Image
                           src={item.logo}
@@ -202,7 +202,7 @@ export default function Home() {
                           width={50}
                           height={50}
                           className={`d-flex justify-content-center align-items-center me-3 ${styles.icon}`}
-                          style={{backgroundColor:'white'}}
+                          style={{ backgroundColor: 'white' }}
                         />
                         <div>
                           <h4 className='p-0 m-0'>{item.title}</h4>
@@ -211,8 +211,22 @@ export default function Home() {
                       </a>
                     </Col>
                   </Row>
-                  <div className={`${styles.exp_des}`}>
-                    <DynamicHTMLRenderer htmlContent={item.description} />
+                  <div className={`${styles.project_des_container}`}>
+                    <Row className='d-flex justify-content-between'>
+                      <Col md={7} sm={12} className='mb-4'>
+                        <DynamicHTMLRenderer htmlContent={item.description} />
+                      </Col>
+                      <Col md={5} sm={12}className={`d-flex justify-content-center align-items-center mb-4`}>
+                        <Image
+                          src={item.vector}
+                          alt={item.title}
+                          width={380}
+                          height={330}
+                          className={`d-flex justify-content-center align-items-center`}
+                          // style={{marginTop:-50}}
+                        />
+                      </Col>
+                    </Row>
                   </div>
                 </Row>
               )
