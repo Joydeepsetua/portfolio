@@ -153,7 +153,7 @@ export default function Home() {
       </Container>
 
       {/* Skills */}
-      <div id='skill' style={{ backgroundColor: LIGHTBLACK, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0'>
+      <div id='skill' style={{ backgroundColor: LIGHTBLACK, padding: 20, color: WHITE, justifyContent: 'center' }} className='m-0 pb-5'>
         <Container>
           <div className='d-flex justify-content-center m-3'>
             <h3 style={{ fontFamily: 'monospace' }}>What I Know</h3>
@@ -245,7 +245,7 @@ export default function Home() {
           <Row className='d-flex justify-content-center m-3 mb-5'>
             {EXPERIENCE.map((item: any) => {
               return (
-                <Row key={item.id} className={`p-3`}>
+                <Row key={item.id} className={`pt-3 pb-3`}>
                   <Row className='d-flex justify-content-between'>
                     <Col md={6} sm={12}>
                       <a className='d-flex align-items-center' href={item.website} target='_blank'
