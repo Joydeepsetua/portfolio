@@ -220,8 +220,8 @@ export default function Home() {
                         <Image
                           src={item.vector}
                           alt={item.title}
-                          width={380}
-                          height={330}
+                          width={item.width}
+                          height={item.height}
                           className={`d-flex justify-content-center align-items-center`}
                           // style={{marginTop:-50}}
                         />
