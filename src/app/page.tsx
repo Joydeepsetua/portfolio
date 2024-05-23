@@ -9,6 +9,7 @@ import { PROJECTS, SOCIAL_MEDIA, THEME_SKILLS, CONTACT, EXPERIENCE } from '../co
 import { Comforter_Brush } from 'next/font/google';
 import { motion } from "framer-motion"
 import React from 'react';
+import { Style } from '@/Styles';
 
 const roboto = Comforter_Brush({
   weight: '400',
@@ -47,10 +48,11 @@ export default function Home() {
           transition={{ type: "linear" }}
         >
           <Row className='mt-5 mb-5'>
-            <Col className='align-items-center'>
+            <Col xl={3} md={4} style={Style.center}>
               <h3 style={{ color: 'white', userSelect: 'none' }} className={roboto.className}>{`< Joydeep Setua />`}</h3>
             </Col>
-            <Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Col md={0}></Col>
+            <Col lg={4} md={6} style={Style.center}>
               <a href="/#" onClick={() => setActiveTab(1)} className={`${styles.nav_item}`} style={{ textDecoration: 'none', color: activeTab == 1 ? PRIMARY : GRAY }}><samp>Home</samp></a>
               <a href="/#projects" onClick={() => setActiveTab(2)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 2 ? PRIMARY : GRAY }}><samp>Projects</samp></a>
               <a href="/#skill" onClick={() => setActiveTab(3)} className={styles.nav_item} style={{ textDecoration: 'none', color: activeTab == 3 ? PRIMARY : GRAY }}><samp>Skill</samp></a>
