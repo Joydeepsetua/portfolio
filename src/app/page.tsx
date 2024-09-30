@@ -114,8 +114,8 @@ export default function Home() {
                 className={`p-1 animate-photo`}
                 src={sheetingWithDesktop}
                 alt="Profile photo"
-                width={400}
-                height={450}
+                width={350}
+                height={400}
                 priority
               />
               <div className='d-none d-md-block align-self-center' style={{ zIndex: 10 }}>
@@ -225,7 +225,6 @@ export default function Home() {
                           width={item.width}
                           height={item.height}
                           className={`d-flex justify-content-center align-items-center`}
-                          // style={{marginTop:-50}}
                         />
                       </Col>
                     </Row>
@@ -359,7 +358,7 @@ export default function Home() {
       {/* Thanks */}
       <div id='thanks' style={{ backgroundColor: LIGHTBLACK, color: WHITE, justifyContent: 'center' }} className='m-0'>
         <Container>
-          <div className='d-flex justify-content-center m-5 p-5'>
+          <div className='d-flex justify-content-center m-5 p-4'>
             <h3 style={{ fontFamily: 'cursive' }}>"Thanks for Scrolling"</h3>
           </div>
         </Container>
