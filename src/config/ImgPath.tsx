@@ -61,7 +61,8 @@ export const ideliver = '/company/ideliver.png';
 
 // projects
 export const getAttendance = '/project/getattendance.png';
-export const mobileVector = '/project/Mobile.png';
+export const getAttendanceSS = '/project/getattendancess.png';
+export const mobile_development = '/project/mobile_development.png';
 
 
 

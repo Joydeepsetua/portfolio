@@ -19,7 +19,7 @@ import {
     linkedinOutline,
     location,
     mailIcon,
-    mobileVector,
+    getAttendanceSS,
     mongodbLogo,
     mysqlLogo,
     nodeLogo,
@@ -43,7 +43,8 @@ import {
     twitterOutline,
     xcodeLogo,
     youtubeFill,
-    youtubeOutline
+    youtubeOutline,
+    mobile_development
 } from "./ImgPath";
 
 // export const SKILLS = [
@@ -199,11 +200,11 @@ export const PROJECTS = [
         shortdescription: 'Android application',
         description: `&nbsp;&nbsp;&nbsp;&nbsp;This Android application is developed using <b>Android Studio</b> with <b>Java</b> and stores data in an <b>SQLite</b> database on the user's mobile phone. In this app, teachers can create classes and add students. There are two options for adding students: manual entry or CSV import. Once students are added, teachers can easily take attendance and download the reports in <b>Excel</b> and <b>PDF</b> formats. <br><br> &nbsp;&nbsp;&nbsp;&nbsp;Additionally, a standout feature enables teachers to download their own monthly reports in PDF format. These reports meticulously outline the total number of classes taught in the month, along with detailed information such as the class, subject, period, and topics covered during each class.`,
         logo: getAttendance,
-        vector: mobileVector,
+        vector: mobile_development,
         live_url:'https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=drive_link',
         github_url:'',
-        width: 50,
-        height: 50
+        width: 400,
+        height: 400
     },
 ];
 

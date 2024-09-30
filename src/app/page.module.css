@@ -89,7 +89,8 @@
 }
 
 .nav_item {
-  padding-right: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   cursor: pointer;
   color: rgba(var(--card-border-rgb));
 }
