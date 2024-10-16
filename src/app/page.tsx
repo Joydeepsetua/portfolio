@@ -112,11 +112,12 @@ export default function Home() {
             >
               <Image
                 className={`p-1 animate-photo`}
-                src={sheetingWithDesktop}
+                src={joydeepsetua}
                 alt="Profile photo"
-                width={350}
-                height={400}
+                width={360}
+                height={360}
                 priority
+                style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70% ' }}
               />
               <div className='d-none d-md-block align-self-center' style={{ zIndex: 10 }}>
                 <hr
