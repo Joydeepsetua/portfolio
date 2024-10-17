@@ -114,8 +114,8 @@ export default function Home() {
                 className={`p-1 animate-photo`}
                 src={joydeepsetua}
                 alt="Profile photo"
-                width={360}
-                height={360}
+                width={350}
+                height={350}
                 priority
                 style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70% ' }}
               />
