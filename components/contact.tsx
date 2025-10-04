@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone, Loader2, CheckCircle, XCircle } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { motion } from "framer-motion"
 import { MY_EMAIL, MY_LOCATION, MY_PHONE } from "@/lib/constants"
+import { useToast } from "@/hooks/use-toast"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -21,19 +22,51 @@ export function Contact() {
     subject: "",
     message: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const { toast } = useToast()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend or email service
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    alert("Thank you for your message! I'll get back to you soon.")
+    setIsLoading(true)
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        // setFormData({ name: "", email: "", subject: "", message: "" })
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+          variant: "success",
+        })
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again later.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      console.error("Error sending email:", error)
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -160,9 +193,17 @@ export function Contact() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
+                    disabled={isLoading}
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </Button>
                 </motion.div>
               </form>

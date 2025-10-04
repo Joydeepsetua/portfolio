@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { BackgroundGradient } from "@/components/background-gradient"
 import { MouseCursor } from "@/components/mouse-cursor"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           <MouseCursor />
           <Header />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
