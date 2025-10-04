@@ -28,28 +28,51 @@ export async function POST(request: NextRequest) {
       to: process.env.SMTP_TO,
       subject: `Portfolio Contact`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #06b6d4; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
+        <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; max-width: 640px; margin: 0 auto; background-color: #f9fafb; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
           
-          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #374151; margin-top: 0;">Contact Details</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
+          <!-- Header -->
+          <div style="background-color: #1f2937; padding: 20px 25px;">
+            <h2 style="color: #ffffff; margin: 0; font-weight: 600;">📩 New Contact Message</h2>
           </div>
-          
-          <div style="background-color: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-            <h3 style="color: #374151; margin-top: 0;">Message</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
+
+          <!-- Contact Details -->
+          <div style="background-color: #ffffff; padding: 24px; border-bottom: 1px solid #e5e7eb;">
+            <h3 style="color: #111827; margin-top: 0; font-size: 18px;">Contact Details</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+              <tr>
+                <td style="padding: 6px 0; color: #374151;"><strong>Name:</strong></td>
+                <td style="padding: 6px 0; color: #1f2937;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #374151;"><strong>Email:</strong></td>
+                <td style="padding: 6px 0; color: #1f2937;">${email}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #374151;"><strong>Subject:</strong></td>
+                <td style="padding: 6px 0; color: #1f2937;">${subject}</td>
+              </tr>
+            </table>
           </div>
-          
-          <div style="margin-top: 20px; padding: 15px; background-color: #ecfdf5; border-left: 4px solid #10b981; border-radius: 4px;">
-            <p style="margin: 0; color: #065f46; font-size: 14px;">
-              <strong>Reply to:</strong> ${email}
+
+          <!-- Message Section -->
+          <div style="background-color: #f9fafb; padding: 24px;">
+            <h3 style="color: #111827; margin-top: 0; font-size: 18px;">Message</h3>
+            <p style="white-space: pre-wrap; line-height: 1.7; color: #374151; margin: 10px 0 0;">${message}</p>
+          </div>
+
+          <!-- Reply Info -->
+          <div style="padding: 18px 24px; background-color: #ecfdf5; border-top: 1px solid #d1fae5;">
+            <p style="margin: 0; color: #065f46; font-size: 15px;">
+              💬 <strong>Reply to:</strong> 
+              <a href="mailto:${email}" style="color: #047857; text-decoration: none;">${email}</a>
             </p>
           </div>
+
+          <!-- Footer -->
+          <div style="text-align: center; padding: 12px; font-size: 12px; color: #d1d5db; background-color: #1f2937;">
+            <p style="margin: 0;">This message was sent via your website contact form.</p>
+          </div>
+
         </div>
       `,
       text: `
