@@ -11,36 +11,28 @@ import { motion } from "framer-motion"
 
 const projects = [
   {
-    title: "E-Commerce Mobile App",
-    description: "A full-featured e-commerce mobile application built with React Native and Firebase.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React Native", "Firebase", "Redux", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Shree Pathology Laboratory",
+    description: "It is a web application for generating medical reports. This front-end application can generate over 52 types of test reports instantly without storing any data.",
+    image: "/projects/shree-pathology-lab.jpeg?height=300&width=500",
+    tags: ["Next.js", "React-Bootstrap", "TypeScript"],
+    liveUrl: "https://shree-pathology-lab.netlify.app/",
+    githubUrl: "https://github.com/Joydeepsetua/Shree-Pathology-Laboratory-Web",
   },
   {
-    title: "Social Networking App",
-    description: "A social networking platform with real-time chat, posts, and user profiles.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React Native", "Socket.io", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Google-Sheet-Api",
+    description: "Built a cost-effective CRUD application using Google Sheets as a free database alternative, deployed entirely on Vercel with zero infrastructure cost. Demonstrated basic CRUD operations and REST API integration using Node.js.",
+    image: "/projects/google-sheet-api.jpg?height=300&width=500",
+    tags: ["Node.js", "Express", "Spreadsheet", "Googleapis", "JWT"],
+    liveUrl: "https://medium.com/@joydeepsetua/how-to-insert-data-in-google-sheets-spreadsheet-in-node-js-a5e3a1886069",
+    githubUrl: "https://github.com/Joydeepsetua/Google-Sheet-Api",
   },
   {
-    title: "Fitness Tracking App",
-    description: "A fitness tracking application with workout plans, progress tracking, and nutrition guidance.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React Native", "TypeScript", "GraphQL", "Realm"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Weather App",
-    description: "A weather application with location-based forecasts, alerts, and interactive maps.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React Native", "OpenWeatherAPI", "Geolocation", "Maps"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Get Attendance",
+    description: "This Android application is developed for daily student attendance tracking and generates monthly reports for teachers.",
+    image: "/projects/getattendance.png?height=300&width=500",
+    tags: ["Android Studio", "Java", "SQLite"],
+    liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
+    githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
   },
 ]
 
@@ -57,7 +49,7 @@ export function Projects() {
               My Work
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600">
-              Featured Projects
+              Projects
             </h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               A selection of my recent work and personal projects
