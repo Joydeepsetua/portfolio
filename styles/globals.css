@@ -9,7 +9,13 @@ body {
 
 .glow {
   position: relative;
-  padding: 4rem 4rem;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .glow {
+    padding: 4rem 4rem;
+  }
 }
 
 .glow::before {

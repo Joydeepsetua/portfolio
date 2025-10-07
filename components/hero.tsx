@@ -31,19 +31,19 @@ export function Hero() {
     }
   };
   return (
-    <section id="home" className="relative py-20 md:py-32 overflow-hidden h-lvh">
+    <section id="home" className="relative py-10 md:py-32 overflow-hidden min-h-screen flex items-center">
       <BubbleEffect />
-      <div className="container px-4 md:px-6 glow">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl glow">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <AnimatedSection className="flex flex-col justify-center space-y-4">
+          <AnimatedSection className="flex flex-col justify-center space-y-4 text-center lg:text-left">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600">
+              <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600">
                 Hey, I&apos;m <TypingEffect text="Joydeep Setua" speed={150} />
               </h1>
-              <p className="text-xl text-gradient-primary">Software Developer</p>
-              <p className="max-w-[600px] text-muted-foreground md:text-lg">{MY_BIO}</p>
+              <p className="text-lg sm:text-xl text-gradient-primary">Software Developer</p>
+              <p className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-lg mx-auto lg:mx-0">{MY_BIO}</p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row py-5">
+            <div className="flex flex-col gap-2 min-[400px]:flex-row py-5 justify-center lg:justify-start">
               <Button
                 asChild
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
@@ -67,7 +67,7 @@ export function Hero() {
                 </Link>
               </Button>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center lg:justify-start">
               <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
                 <Link href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
                   <Button
@@ -108,7 +108,7 @@ export function Hero() {
           </AnimatedSection>
           <AnimatedSection className="flex items-center justify-center" delay={0.4}>
             <motion.div
-              className="relative aspect-square  rounded-full border-4 border-cyan-500/20 w-[280px] h-[280px] md:w-[400px] md:h-[400px]"
+              className="relative aspect-square rounded-full border-4 border-cyan-500/20 w-[250px] h-[250px] sm:w-[280px] sm:h-[280px] md:w-[400px] md:h-[400px] mx-auto"
               animate={{
                 boxShadow: [
                   "0 0 20px rgba(57, 203, 249, 0.3)",
@@ -124,9 +124,9 @@ export function Hero() {
             >
               <img
                 alt="Joydeep Setua"
-                className="object-cover"
+                className="object-cover w-full h-full rounded-full"
                 src="/joydeepsetua.jpg"
-                style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70% ', marginLeft: 10, marginTop: 8 }}
+                style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }}
               />
             </motion.div>
           </AnimatedSection>
