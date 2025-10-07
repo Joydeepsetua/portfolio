@@ -40,7 +40,7 @@ export function GitHubCalendarSection() {
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-6">
                   <Calendar className="h-5 w-5 text-cyan-500" />
-                  <h3 className="text-xl font-semibold">GitHub Contribution Calendar</h3>
+                  <h3 className="text-xl font-semibold">GitHub Contribution</h3>
                 </div>
                 
                 <div className="relative">
