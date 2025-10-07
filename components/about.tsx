@@ -101,23 +101,23 @@ export function About() {
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   className="relative"
                 >
-                  <div className="grid md:grid-cols-[auto_1fr] gap-4 items-start">
-                    <a className="hidden md:block w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 cursor-pointer" href={exp.website} target="_blank">
+                  <div className="flex flex-col sm:flex-row gap-4 items-start">
+                    <a className="w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 cursor-pointer mx-auto sm:mx-0" href={exp.website} target="_blank">
                       <img
                         src={exp.logo || "/placeholder.svg"}
                         alt={exp.company}
                         className="w-full h-full object-fill"
                       />
                     </a>
-                    <div>
-                      <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <div className="flex-1 text-center sm:text-left">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                         <a className="cursor-pointer" href={exp.website} target="_blank">
-                          <h4 className="text-xl font-bold">{exp.title}</h4>
-                          <p className="text-muted-foreground">{exp.company}</p>
+                          <h4 className="text-lg sm:text-xl font-bold">{exp.title}</h4>
+                          <p className="text-muted-foreground text-sm sm:text-base">{exp.company}</p>
                         </a>
-                        <span className="text-sm text-cyan-500 mt-1 md:mt-0">{exp.period}</span>
+                        <span className="text-sm text-cyan-500 mt-1 sm:mt-0">{exp.period}</span>
                       </div>
-                      <p className="text-muted-foreground">{exp.description}</p>
+                      <p className="text-muted-foreground text-sm sm:text-base">{exp.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -142,23 +142,23 @@ export function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <div className="grid md:grid-cols-[auto_1fr] gap-4 items-start">
-                    <div className="hidden md:block w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0">
+                  <div className="flex flex-col sm:flex-row gap-4 items-start">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 mx-auto sm:mx-0">
                       <img
                         src={edu.logo || "/placeholder.svg"}
                         alt={edu.institution}
                         className="w-full h-full object-cover bg-white"
                       />
                     </div>
-                    <div>
-                      <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                    <div className="flex-1 text-center sm:text-left">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                         <div>
-                          <h4 className="text-xl font-bold">{edu.degree}</h4>
-                          <p className="text-muted-foreground">{edu.institution}</p>
+                          <h4 className="text-lg sm:text-xl font-bold">{edu.degree}</h4>
+                          <p className="text-muted-foreground text-sm sm:text-base">{edu.institution}</p>
                         </div>
-                        <span className="text-sm text-cyan-500 mt-1 md:mt-0">{edu.period}</span>
+                        <span className="text-sm text-cyan-500 mt-1 sm:mt-0">{edu.period}</span>
                       </div>
-                      <p className="text-muted-foreground">{edu.description}</p>
+                      <p className="text-muted-foreground text-sm sm:text-base">{edu.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -183,15 +183,15 @@ export function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <div>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                  <div className="text-center sm:text-left">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                       <div>
-                        <h4 className="text-xl font-bold">{achievement.title}</h4>
-                        <p className="text-muted-foreground">{achievement.organization}</p>
+                        <h4 className="text-lg sm:text-xl font-bold">{achievement.title}</h4>
+                        <p className="text-muted-foreground text-sm sm:text-base">{achievement.organization}</p>
                       </div>
-                      <span className="text-sm text-cyan-500 mt-1 md:mt-0">{achievement.year}</span>
+                      <span className="text-sm text-cyan-500 mt-1 sm:mt-0">{achievement.year}</span>
                     </div>
-                    <p className="text-muted-foreground">{achievement.description}</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">{achievement.description}</p>
                   </div>
                 </motion.div>
               ))}
