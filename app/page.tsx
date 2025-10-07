@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero"
+import { GitHubCalendarSection } from "@/components/github-calendar"
 import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Hero />
+      <GitHubCalendarSection />
       <About />
       <Skills />
       <Projects />
