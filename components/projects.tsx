@@ -19,7 +19,7 @@ const projects = [
     githubUrl: "https://github.com/Joydeepsetua/Shree-Pathology-Laboratory-Web",
   },
   {
-    title: "Google-Sheet-Api",
+    title: "Google-Sheet-API",
     description: "Built a cost-effective CRUD application using Google Sheets as a free database alternative, deployed entirely on Vercel with zero infrastructure cost. Demonstrated basic CRUD operations and REST API integration using Node.js.",
     image: "/projects/google-sheet-api.jpg?height=300&width=500",
     tags: ["Node.js", "Express", "Spreadsheet", "Googleapis", "JWT"],

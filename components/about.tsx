@@ -9,7 +9,7 @@ const experiences = [
   {
     title: "Software Developer",
     company: "Sthanave Technologies",
-    website: 'https://sthanave.co.in/',
+    website: 'https://sthanave.com/',
     logo: "/company/sthanave.png?height=60&width=60",
     period: "Dec 2022 - Present",
     description:
