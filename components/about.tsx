@@ -7,11 +7,20 @@ import { Briefcase, GraduationCap, Trophy } from "lucide-react"
 
 const experiences = [
   {
+    title: "Senior App Developer",
+    company: "Graeon Ventures Pvt Ltd",
+    website: 'https://graeon.ai/',
+    logo: "/company/graeontech.png?height=60&width=60",
+    period: "Jan 2026 - Present",
+    description:
+      "Developing a multi-tenant mobile application using React Native (Expo) for Android and iOS. The application includes modules such as HRMS, CMS, and Inventory Management, with advanced features like live location tracking and face-based attendance (Face Punch). Focused on building scalable architecture, performance optimization, and seamless user experience.",
+  },
+  {
     title: "Software Developer",
     company: "Sthanave Technologies",
     website: 'https://sthanave.com/',
     logo: "/company/sthanave.png?height=60&width=60",
-    period: "Dec 2022 - Present",
+    period: "Dec 2022 - Jan 2026",
     description:
       "Experienced in building cross-platform apps using React Native with Redux Toolkit, Zoom SDK integration, and performance optimization. Skilled in deploying apps to the Play Store and App Store. On the backend, I develop scalable APIs using Node.js with MongoDB/MySQL, implement clustering, and enable real-time features with Socket.IO.",
   },
@@ -74,7 +83,7 @@ export function About() {
               About Me
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600">
-              Who I Am
+              Who Am I
             </h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               A passionate developer who loves learning new technologies every day
