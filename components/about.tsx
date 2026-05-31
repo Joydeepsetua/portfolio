@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { AnimatedSection } from "@/components/animated-section"
 import { motion } from "framer-motion"
@@ -111,11 +112,13 @@ export function About() {
                   className="relative"
                 >
                   <div className="flex flex-col sm:flex-row gap-4 items-start">
-                    <a className="w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 cursor-pointer mx-auto sm:mx-0" href={exp.website} target="_blank">
-                      <img
+                    <a className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 cursor-pointer mx-auto sm:mx-0" href={exp.website} target="_blank">
+                      <Image
                         src={exp.logo || "/placeholder.svg"}
                         alt={exp.company}
-                        className="w-full h-full object-fill"
+                        fill
+                        sizes="64px"
+                        className="object-fill"
                       />
                     </a>
                     <div className="flex-1 text-center sm:text-left">
@@ -152,11 +155,13 @@ export function About() {
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
                   <div className="flex flex-col sm:flex-row gap-4 items-start">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 mx-auto sm:mx-0">
-                      <img
+                    <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 mx-auto sm:mx-0">
+                      <Image
                         src={edu.logo || "/placeholder.svg"}
                         alt={edu.institution}
-                        className="w-full h-full object-cover bg-white"
+                        fill
+                        sizes="64px"
+                        className="object-cover bg-white"
                       />
                     </div>
                     <div className="flex-1 text-center sm:text-left">

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -64,14 +65,16 @@ export function Projects() {
               delay={index * 0.1}
             >
               <motion.div
-                className="aspect-video overflow-hidden"
+                className="relative aspect-video overflow-hidden"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300"
                 />
               </motion.div>
               <CardHeader>

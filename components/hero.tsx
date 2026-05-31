@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Download, Github, Linkedin, Twitter, Loader2 } from "lucide-react"
 import { TypingEffect } from "@/components/typing-effect"
@@ -122,10 +123,13 @@ export function Hero() {
                 ease: "easeInOut",
               }}
             >
-              <img
+              <Image
                 alt="Joydeep Setua"
-                className="object-cover w-full h-full rounded-full"
+                className="object-cover rounded-full"
                 src="/joydeepsetua.jpg"
+                fill
+                sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 400px"
+                priority
                 style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }}
               />
             </motion.div>
