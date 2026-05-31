@@ -5,71 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { AnimatedSection } from "@/components/animated-section"
 import { motion } from "framer-motion"
 import { Briefcase, GraduationCap, Trophy } from "lucide-react"
-
-const experiences = [
-  {
-    title: "Senior App Developer",
-    company: "Graeon Ventures Pvt Ltd",
-    website: 'https://graeon.ai/',
-    logo: "/company/graeontech.png?height=60&width=60",
-    period: "Jan 2026 - Present",
-    description:
-      "Developing a multi-tenant mobile application using React Native (Expo) for Android and iOS. The application includes modules such as HRMS, CMS, and Inventory Management, with advanced features like live location tracking and face-based attendance (Face Punch). Focused on building scalable architecture, performance optimization, and seamless user experience.",
-  },
-  {
-    title: "Software Developer",
-    company: "Sthanave Technologies",
-    website: 'https://sthanave.com/',
-    logo: "/company/sthanave.png?height=60&width=60",
-    period: "Dec 2022 - Jan 2026",
-    description:
-      "Experienced in building cross-platform apps using React Native with Redux Toolkit, Zoom SDK integration, and performance optimization. Skilled in deploying apps to the Play Store and App Store. On the backend, I develop scalable APIs using Node.js with MongoDB/MySQL, implement clustering, and enable real-time features with Socket.IO.",
-  },
-  {
-
-    title: 'Staff Software Engineer',
-    company: "iDeliver Technologies LLC",
-    website: 'https://www.ideliver-inc.com/',
-    logo: "/company/ideliver.png?height=60&width=60",
-    period: "Sep 2022 - Nov 2022",
-    description: "Worked on automating websites using scripting with LoadRunner and UFT tools. Automated over 4 websites for performance testing using LoadRunner. Automated more than 2 websites using UFT for functional testing.",
-    },
-]
-
-const education = [
-  {
-    degree: "Diploma in Computer Science Engineering",
-    institution: "UPU Govt. Polytechnic collage, Durg (CSVTU)",
-    logo: "/upu_govt_poly.png?height=60&width=60",
-    period: "2019 - 2022",
-    description:
-      "Completed a Diploma in Computer Science Engineering with 9.08 CPI(Cumulative Performance Index) in Apr-May 2022. Built strong CS fundamentals and worked on projects using various technologies.",
-  },
-  {
-    degree: "Higher Secondary Education",
-    institution: "Govt. Higher Secondary School Jarway",
-    logo: "/cgbse_logo.png?height=60&width=60",
-    period: "MAR 2019",
-    description:
-      "Completed higher secondary education with science and mathematics. Participated in various extracurricular activities and competitions.",
-  },
-]
-
-const achievements = [
-  {
-    title: "Excellence in Leadership",
-    organization: "Sthanave Technologies",
-    year: "2023",
-    description:
-      "Honored to be awarded the Excellence in Leadership Award by Sthanave Technologies for outstanding leadership and impact.",
-  },
-  {
-    title: "Campus Ambassador",
-    organization: "IIT Kharagpur",
-    year: "2022",
-    description: "Certified as a Campus Ambassador at UPU Govt. Polytechnic Durg by IIT Kharagpur.",
-  }
-]
+import { experiences, education, achievements } from "@/lib/data"
 
 export function About() {
   return (

@@ -10,14 +10,14 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
-export function Toaster() {
+export function Toaster({ viewportClassName }: { viewportClassName?: string }) {
   const { toasts } = useToast()
 
   return (
-    <ToastProvider>
+    <ToastProvider duration={3500}>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast key={id} {...props}>
+          <Toast key={id} {...props} className="p-4 pr-9">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
@@ -29,7 +29,9 @@ export function Toaster() {
           </Toast>
         )
       })}
-      <ToastViewport />
+      {/* viewportClassName lets the phone view position toasts inside its frame;
+          omitting it falls back to the default fixed (desktop) position. */}
+      <ToastViewport className={viewportClassName} />
     </ToastProvider>
   )
 }
