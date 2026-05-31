@@ -74,19 +74,6 @@
   }
 }
 
-/* Custom cursor styles */
-.cursor-dot {
-  mix-blend-mode: difference;
-}
-
-/* Hide default cursor when custom cursor is active */
-@media (min-width: 768px) {
-  * {
-    cursor: none !important;
-  }
-}
-
-/* Make sure header links are still clickable with custom cursor */
 header a,
 header button {
   position: relative;
