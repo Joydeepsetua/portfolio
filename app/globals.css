@@ -74,9 +74,35 @@
   }
 }
 
-header a,
-header button {
-  position: relative;
-  z-index: 9990;
+@layer utilities {
+  /* Hide scrollbars inside the phone screen while keeping scroll behaviour */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Skeleton shimmer used by loading placeholders */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 25%,
+      hsl(var(--muted-foreground) / 0.15) 37%,
+      hsl(var(--muted)) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 
