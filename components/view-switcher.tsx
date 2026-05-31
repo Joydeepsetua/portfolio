@@ -23,13 +23,14 @@ export function ViewSwitcher() {
           aria-label="Mobile view"
           aria-pressed={view === "mobile"}
           className={cn(
-            "flex h-8 w-8 items-center justify-center rounded-full transition-colors",
+            "flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-medium transition-colors",
             view === "mobile"
               ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
               : "text-muted-foreground hover:text-foreground",
           )}
         >
           <Smartphone className="h-4 w-4" />
+          Mobile
         </button>
         <button
           type="button"
@@ -37,13 +38,14 @@ export function ViewSwitcher() {
           aria-label="Desktop view"
           aria-pressed={view === "desktop"}
           className={cn(
-            "flex h-8 w-8 items-center justify-center rounded-full transition-colors",
+            "flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-medium transition-colors",
             view === "desktop"
               ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
               : "text-muted-foreground hover:text-foreground",
           )}
         >
           <Monitor className="h-4 w-4" />
+          Desktop
         </button>
       </div>
     </>

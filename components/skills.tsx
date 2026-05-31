@@ -2,43 +2,10 @@
 
 import { Badge } from "@/components/ui/badge"
 import { CardContent } from "@/components/ui/card"
-import { Database, Layout, Smartphone, Layers, Terminal, Server } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { motion } from "framer-motion"
-
-const skillCategories = [
-  {
-    title: "Mobile Development",
-    icon: <Smartphone className="h-8 w-8 text-cyan-500" />,
-    skills: ["React Native", "Xcode", "Android", "Expo", "Redux Toolkit"],
-  },
-  {
-    title: "Frontend",
-    icon: <Layout className="h-8 w-8 text-cyan-500" />,
-    skills: ["Next.js", "React.js", "Medusa.js", "JavaScript", "TypeScript", "Redux"],
-  },
-  {
-    title: "Backend",
-    icon: <Server className="h-8 w-8 text-cyan-500" />,
-    skills: ["Node.js", "Express", "Restful APIs", "Socket.IO", "Webhooks", "Cron Jobs"],
-  },
-  {
-    title: "Database",
-    icon: <Database className="h-8 w-8 text-cyan-500" />,
-    skills: ["MySql","MongoDB", "Firebase", "SQLite", "Google Sheet"],
-  },
-  {
-    title: "Services",
-    icon: <Layers className="h-8 w-8 text-cyan-500" />,
-    skills: ["Push Notifications", "Payment Gateway", "Zoom SDK", "AdMob", "Deep Linking"],
-  },
-  {
-    title: "Deployment & Tools",
-    icon: <Terminal className="h-8 w-8 text-cyan-500" />,
-    skills: ["App Store", "Play Store", "AWS", "S3", "Git" ],
-  },
-]
+import { skillCategories } from "@/lib/data"
 
 export function Skills() {
   return (
@@ -73,7 +40,7 @@ export function Skills() {
                     animate={{ rotate: [0, 10, 0, -10, 0] }}
                     transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                   >
-                    {category.icon}
+                    <category.icon className="h-8 w-8 text-cyan-500" />
                   </motion.div>
                   <h3 className="text-xl font-bold">{category.title}</h3>
                 </div>

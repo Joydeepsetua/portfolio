@@ -9,33 +9,7 @@ import { ExternalLink, Github } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { motion } from "framer-motion"
-
-const projects = [
-  {
-    title: "Shree Pathology Laboratory",
-    description: "It is a web application for generating medical reports. This front-end application can generate over 52 types of test reports instantly without storing any data.",
-    image: "/projects/shree-pathology-lab.jpeg?height=300&width=500",
-    tags: ["Next.js", "React-Bootstrap", "TypeScript"],
-    liveUrl: "https://shree-pathology-lab.netlify.app/",
-    githubUrl: "https://github.com/Joydeepsetua/Shree-Pathology-Laboratory-Web",
-  },
-  {
-    title: "Google-Sheet-API",
-    description: "Built a cost-effective CRUD application using Google Sheets as a free database alternative, deployed entirely on Vercel with zero infrastructure cost. Demonstrated basic CRUD operations and REST API integration using Node.js.",
-    image: "/projects/google-sheet-api.jpg?height=300&width=500",
-    tags: ["Node.js", "Express", "Spreadsheet", "Googleapis", "JWT"],
-    liveUrl: "https://medium.com/@joydeepsetua/how-to-insert-data-in-google-sheets-spreadsheet-in-node-js-a5e3a1886069",
-    githubUrl: "https://github.com/Joydeepsetua/Google-Sheet-Api",
-  },
-  {
-    title: "Get Attendance",
-    description: "This Android application is developed for daily student attendance tracking and generates monthly reports for teachers.",
-    image: "/projects/getattendance.png?height=300&width=500",
-    tags: ["Android Studio", "Java", "SQLite"],
-    liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
-    githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
-  },
-]
+import { projects } from "@/lib/data"
 
 export function Projects() {
   return (

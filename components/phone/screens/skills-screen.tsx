@@ -1,17 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Database, Layout, Smartphone, Layers, Terminal, Server, type LucideIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-
-const skillCategories: { title: string; icon: LucideIcon; skills: string[] }[] = [
-  { title: "Mobile Development", icon: Smartphone, skills: ["React Native", "Xcode", "Android", "Expo", "Redux Toolkit"] },
-  { title: "Frontend", icon: Layout, skills: ["Next.js", "React.js", "Medusa.js", "JavaScript", "TypeScript", "Redux"] },
-  { title: "Backend", icon: Server, skills: ["Node.js", "Express", "Restful APIs", "Socket.IO", "Webhooks", "Cron Jobs"] },
-  { title: "Database", icon: Database, skills: ["MySql", "MongoDB", "Firebase", "SQLite", "Google Sheet"] },
-  { title: "Services", icon: Layers, skills: ["Push Notifications", "Payment Gateway", "Zoom SDK", "AdMob", "Deep Linking"] },
-  { title: "Deployment & Tools", icon: Terminal, skills: ["App Store", "Play Store", "AWS", "S3", "Git"] },
-]
+import { skillCategories } from "@/lib/data"
 
 export function SkillsScreen() {
   return (

@@ -1,3 +1,5 @@
+import { Database, Layout, Smartphone, Layers, Terminal, Server, type LucideIcon } from "lucide-react"
+
 export interface Experience {
   title: string
   company: string
@@ -29,6 +31,12 @@ export interface Project {
   tags: string[]
   liveUrl: string
   githubUrl: string
+}
+
+export interface SkillCategory {
+  title: string
+  icon: LucideIcon
+  skills: string[]
 }
 
 export const experiences: Experience[] = [
@@ -125,4 +133,13 @@ export const projects: Project[] = [
     liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
     githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
   },
+]
+
+export const skillCategories: SkillCategory[] = [
+  { title: "Mobile Development", icon: Smartphone, skills: ["React Native", "Xcode", "Android", "Expo", "Redux Toolkit"] },
+  { title: "Frontend", icon: Layout, skills: ["Next.js", "React.js", "Medusa.js", "JavaScript", "TypeScript", "Redux"] },
+  { title: "Backend", icon: Server, skills: ["Node.js", "Express", "Restful APIs", "Socket.IO", "Webhooks", "Cron Jobs"] },
+  { title: "Database", icon: Database, skills: ["MySql", "MongoDB", "Firebase", "SQLite", "Google Sheet"] },
+  { title: "Services", icon: Layers, skills: ["Push Notifications", "Payment Gateway", "Zoom SDK", "AdMob", "Deep Linking"] },
+  { title: "Deployment & Tools", icon: Terminal, skills: ["App Store", "Play Store", "AWS", "S3", "Git"] },
 ]
