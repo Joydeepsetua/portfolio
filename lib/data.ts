@@ -29,8 +29,8 @@ export interface Project {
   description: string
   image: string
   tags: string[]
-  liveUrl: string
-  githubUrl: string
+  liveUrl?: string
+  githubUrl?: string
 }
 
 export interface SkillCategory {
@@ -106,6 +106,24 @@ export const achievements: Achievement[] = [
 
 export const projects: Project[] = [
   {
+    title: "FaceTen",
+    description:
+      "A privacy-first facial recognition attendance app for Android that runs entirely offline. ML Kit detects and crops the face, a FaceNet TensorFlow Lite model turns it into a 128-dimensional embedding, and cosine similarity matches it against records stored locally in SQLite. All processing happens on-device, so no face image or biometric data ever leaves the phone.",
+    image: "/projects/faceten.jpg",
+    tags: ["React Native", "TensorFlow Lite", "ML Kit", "TypeScript", "Kotlin", "SQLite"],
+    liveUrl: "https://play.google.com/store/apps/details?id=com.facialattendance",
+    githubUrl: "https://github.com/Joydeepsetua/facial-attendance-system",
+  },
+  {
+    title: "JODE Launcher",
+    description:
+      "A deliberately minimal Android launcher that does one thing: search installed apps by name and launch them. Built on React Native's New Architecture (bridgeless Fabric + TurboModule) with a single Kotlin native module handling app queries, recents and screen time. No widgets, folders, feeds, ads or accounts — it runs entirely offline.",
+    image: "/projects/jode-launcher.jpg",
+    tags: ["React Native", "TypeScript", "Kotlin", "TurboModule"],
+    liveUrl:"https://play.google.com/store/apps/details?id=com.zypido.jode",
+    githubUrl: "https://github.com/Joydeepsetua/jode-launcher",
+  },
+  {
     title: "Shree Pathology Laboratory",
     description:
       "It is a web application for generating medical reports. This front-end application can generate over 52 types of test reports instantly without storing any data.",
@@ -124,15 +142,15 @@ export const projects: Project[] = [
       "https://medium.com/@joydeepsetua/how-to-insert-data-in-google-sheets-spreadsheet-in-node-js-a5e3a1886069",
     githubUrl: "https://github.com/Joydeepsetua/Google-Sheet-Api",
   },
-  {
-    title: "Get Attendance",
-    description:
-      "This Android application is developed for daily student attendance tracking and generates monthly reports for teachers.",
-    image: "/projects/getattendance.png",
-    tags: ["Android Studio", "Java", "SQLite"],
-    liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
-    githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
-  },
+  // {
+  //   title: "Get Attendance",
+  //   description:
+  //     "This Android application is developed for daily student attendance tracking and generates monthly reports for teachers.",
+  //   image: "/projects/getattendance.png",
+  //   tags: ["Android Studio", "Java", "SQLite"],
+  //   liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
+  //   githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
+  // },
 ]
 
 export const skillCategories: SkillCategory[] = [

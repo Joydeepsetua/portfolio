@@ -189,24 +189,28 @@ export function PhoneApp() {
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">{selectedProject.description}</p>
               <div className="flex gap-2 pt-1">
-                <motion.a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileTap={{ scale: 0.96 }}
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-cyan-500/30 py-2.5 text-sm font-semibold text-cyan-400"
-                >
-                  <Github className="h-4 w-4" /> Code
-                </motion.a>
-                <motion.a
-                  href={selectedProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileTap={{ scale: 0.96 }}
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 py-2.5 text-sm font-semibold text-white"
-                >
-                  <ExternalLink className="h-4 w-4" /> Live Demo
-                </motion.a>
+                {selectedProject.githubUrl && (
+                  <motion.a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.96 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-cyan-500/30 py-2.5 text-sm font-semibold text-cyan-400"
+                  >
+                    <Github className="h-4 w-4" /> Code
+                  </motion.a>
+                )}
+                {selectedProject.liveUrl && (
+                  <motion.a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.96 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 py-2.5 text-sm font-semibold text-white"
+                  >
+                    <ExternalLink className="h-4 w-4" /> Live Demo
+                  </motion.a>
+                )}
               </div>
             </div>
           )}

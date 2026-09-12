@@ -24,6 +24,7 @@ import {
   MY_BIO,
   MY_GITHUB_URL,
   MY_LINKEDIN_URL,
+  MY_ROLE,
   MY_TWITTER_URL,
   MY_LOCATION,
 } from "@/lib/constants"
@@ -93,7 +94,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (tab: "contact") => voi
             <h1 className="text-xl font-bold">
               <TypingEffect text="Joydeep Setua" speed={120} />
             </h1>
-            <p className="text-sm font-medium text-gradient-primary">Sr. Software Developer</p>
+            <p className="text-sm font-medium text-gradient-primary">{MY_ROLE}</p>
             <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
               <MapPin className="h-3 w-3 shrink-0" /> {MY_LOCATION}
             </p>

@@ -8,9 +8,8 @@ import { TypingEffect } from "@/components/typing-effect"
 import { AnimatedSection } from "@/components/animated-section"
 import { motion } from "framer-motion"
 import { BubbleEffect } from "@/components/bubble-effect"
-import { CV_URL, MY_BIO, MY_GITHUB_URL, MY_LINKEDIN_URL, MY_TWITTER_URL } from "@/lib/constants"
+import { CV_URL, MY_BIO, MY_GITHUB_URL, MY_LINKEDIN_URL, MY_ROLE, MY_TWITTER_URL } from "@/lib/constants"
 import { useState } from "react"
-import "@/styles/globals.css"
 
 export function Hero() {
   const [loading, setLoading] = useState(false);
@@ -41,7 +40,7 @@ export function Hero() {
               <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600">
                 Hey, I&apos;m <TypingEffect text="Joydeep Setua" speed={150} />
               </h1>
-              <p className="text-lg sm:text-xl text-gradient-primary">Software Developer</p>
+              <p className="text-lg sm:text-xl text-gradient-primary">{MY_ROLE}</p>
               <p className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-lg mx-auto lg:mx-0">{MY_BIO}</p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row py-5 justify-center lg:justify-start">
