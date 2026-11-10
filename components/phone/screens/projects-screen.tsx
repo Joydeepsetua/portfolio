@@ -1,39 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import { AnimatePresence, motion, type PanInfo } from "framer-motion"
-import { ChevronLeft, ChevronRight, Hand } from "lucide-react"
+import { motion } from "framer-motion"
+import { Github, ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { projects, type Project } from "@/lib/data"
 
-const SWIPE_THRESHOLD = 80
-
-const cardVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 220 : -220, opacity: 0, scale: 0.9 }),
-  center: { x: 0, opacity: 1, scale: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -220 : 220, opacity: 0, scale: 0.9 }),
-}
-
 export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) => void }) {
-  const [[index, direction], setState] = useState<[number, number]>([0, 0])
-
-  const paginate = (dir: number) => {
-    setState(([prev]) => {
-      const next = (prev + dir + projects.length) % projects.length
-      return [next, dir]
-    })
-  }
-
-  const handleDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x < -SWIPE_THRESHOLD || info.velocity.x < -400) paginate(1)
-    else if (info.offset.x > SWIPE_THRESHOLD || info.velocity.x > 400) paginate(-1)
-  }
-
-  const project = projects[index]
-
   return (
-    <div className="flex h-full flex-col px-5 pb-4 pt-4">
+    <div className="space-y-4 px-5 pb-8 pt-4">
       <div>
         <h2 className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
           Projects
@@ -46,30 +21,32 @@ export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) 
             My Work
           </Badge>
         </div>
-        <p className="mt-1 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
-          <Hand className="h-3 w-3" /> Swipe to browse · tap for details
+        <p className="mt-1 text-center text-xs text-muted-foreground">
+          {projects.length} projects · tap a card for details
         </p>
       </div>
 
-      {/* Swipe deck */}
-      <div className="relative mt-5 min-h-[360px] flex-1">
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
-          <motion.div
-            key={index}
-            custom={direction}
-            variants={cardVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.6}
-            onDragEnd={handleDragEnd}
+      <div className="space-y-4">
+        {projects.map((project, index) => (
+          <motion.article
+            key={project.title}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.07 }}
+            whileTap={{ scale: 0.975 }}
             onClick={() => onOpenProject(project)}
-            className="absolute inset-x-0 top-0 cursor-grab overflow-hidden rounded-3xl border border-border/60 bg-card shadow-xl active:cursor-grabbing"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault()
+                onOpenProject(project)
+              }
+            }}
+            className="group cursor-pointer overflow-hidden rounded-3xl border border-border/60 bg-card shadow-lg shadow-black/5 transition-colors active:border-cyan-500/40"
           >
-            <div className="relative aspect-video w-full bg-muted/40">
+            {/* Cover */}
+            <div className="relative aspect-[16/10] w-full bg-muted/40">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -78,15 +55,26 @@ export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) 
                 className="object-cover"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+              {/* Fade the image into the card body */}
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/25 to-transparent" />
+
+              {/* Index chip */}
+              <span className="absolute left-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[10px] font-bold tabular-nums text-white backdrop-blur-sm">
+                {String(index + 1).padStart(2, "0")}
+              </span>
             </div>
-            <div className="space-y-2 p-4">
-              <h3 className="text-lg font-bold text-gradient-primary">{project.title}</h3>
+
+            {/* Body */}
+            <div className="space-y-2.5 p-4 pt-3">
+              <h3 className="text-base font-bold leading-tight text-gradient-primary">
+                {project.title}
+              </h3>
               <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
+
               <div className="flex flex-wrap gap-1.5">
-                {project.tags.slice(0, 4).map((tag) => (
+                {project.tags.slice(0, 3).map((tag) => (
                   <Badge
                     key={tag}
                     variant="secondary"
@@ -95,43 +83,43 @@ export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) 
                     {tag}
                   </Badge>
                 ))}
+                {project.tags.length > 3 && (
+                  <Badge variant="secondary" className="bg-muted/60 text-[10px] text-muted-foreground">
+                    +{project.tags.length - 3}
+                  </Badge>
+                )}
               </div>
-              <p className="pt-1 text-center text-[10px] font-medium text-cyan-400">Tap for details ↑</p>
+
+              {/* Quick actions — don't bubble to the card's detail sheet */}
+              <div className="flex items-center gap-2 border-t border-border/50 pt-3">
+                {project.githubUrl && (
+                  <motion.a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    whileTap={{ scale: 0.94 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-cyan-500/30 py-2 text-[11px] font-semibold text-cyan-400"
+                  >
+                    <Github className="h-3.5 w-3.5" /> Code
+                  </motion.a>
+                )}
+                {project.liveUrl && (
+                  <motion.a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    whileTap={{ scale: 0.94 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 py-2 text-[11px] font-semibold text-white"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" /> Live
+                  </motion.a>
+                )}
+              </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Controls */}
-      <div className="mt-4 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={() => paginate(-1)}
-          aria-label="Previous project"
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 active:scale-90"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-
-        <div className="flex gap-1.5">
-          {projects.map((p, i) => (
-            <span
-              key={p.title}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? "w-5 bg-cyan-400" : "w-1.5 bg-muted-foreground/40"
-              }`}
-            />
-          ))}
-        </div>
-
-        <button
-          type="button"
-          onClick={() => paginate(1)}
-          aria-label="Next project"
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 active:scale-90"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+          </motion.article>
+        ))}
       </div>
     </div>
   )

@@ -9,28 +9,28 @@ interface TypingEffectProps {
 }
 
 export function TypingEffect({ text, speed = 100, className = "" }: TypingEffectProps) {
-  const [displayText, setDisplayText] = useState("")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isComplete, setIsComplete] = useState(false)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex])
-        setCurrentIndex((prev) => prev + 1)
-      }, speed)
+    if (count >= text.length) return
+    const timeout = setTimeout(() => setCount((c) => c + 1), speed)
+    return () => clearTimeout(timeout)
+  }, [count, speed, text.length])
 
-      return () => clearTimeout(timeout)
-    } else {
-      setIsComplete(true)
-    }
-  }, [currentIndex, speed, text])
+  const isComplete = count >= text.length
 
+  // The full text is always in the DOM (untyped part is invisible) so crawlers
+  // read the complete heading and the layout doesn't shift while typing.
   return (
     <span className={className}>
-      {displayText}
-      {!isComplete && <span className="animate-pulse">|</span>}
+      {text.slice(0, count)}
+      {!isComplete && (
+        <span
+          aria-hidden="true"
+          className="-mr-[3px] inline-block h-[0.9em] w-[3px] animate-pulse bg-cyan-400 align-middle"
+        />
+      )}
+      <span className="invisible">{text.slice(count)}</span>
     </span>
   )
 }
-

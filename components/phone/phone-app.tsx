@@ -11,7 +11,7 @@ import { SplashScreen } from "@/components/phone/splash-screen"
 import { ScreenSkeleton, HomeSkeleton } from "@/components/phone/screen-skeleton"
 import { BottomSheet } from "@/components/phone/bottom-sheet"
 import { Toaster } from "@/components/ui/toaster"
-import { type TabId } from "@/components/phone/tabs"
+import { TABS, type TabId } from "@/components/phone/tabs"
 import { HomeScreen } from "@/components/phone/screens/home-screen"
 import { ProjectsScreen } from "@/components/phone/screens/projects-screen"
 import { SkillsScreen } from "@/components/phone/screens/skills-screen"
@@ -24,9 +24,9 @@ const PULL_TRIGGER = 55
 export function PhoneApp() {
   const [booting, setBooting] = useState(true)
   const [activeTab, setActiveTab] = useState<TabId>("home")
-  // Starts true so the skeleton (not the real screen) sits behind the splash —
-  // avoids a one-frame flash of real content as the splash fades out.
-  const [loading, setLoading] = useState(true)
+  // Starts false so the real content is in the server HTML (crawlable) — the
+  // splash overlays it until boot finishes.
+  const [loading, setLoading] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
@@ -43,14 +43,6 @@ export function PhoneApp() {
     const id = setTimeout(() => setBooting(false), 1800)
     return () => clearTimeout(id)
   }, [])
-
-  // Skeleton only on the first load (right after the splash) — not on tab switches
-  useEffect(() => {
-    if (booting) return
-    setLoading(true)
-    const id = setTimeout(() => setLoading(false), 500)
-    return () => clearTimeout(id)
-  }, [booting])
 
   // Reset scroll position when switching tabs (no skeleton)
   useEffect(() => {
@@ -95,8 +87,8 @@ export function PhoneApp() {
     setPull(0)
   }
 
-  const renderScreen = () => {
-    switch (activeTab) {
+  const renderScreen = (tab: TabId) => {
+    switch (tab) {
       case "home":
         return <HomeScreen onNavigate={setActiveTab} />
       case "projects":
@@ -163,10 +155,17 @@ export function PhoneApp() {
                   transition={{ duration: 0.25 }}
                   className="flex flex-1 flex-col"
                 >
-                  {renderScreen()}
+                  {renderScreen(activeTab)}
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {/* Inactive tabs stay in the DOM (hidden) so crawlers can index every screen */}
+            {TABS.filter((t) => t.id !== activeTab).map((t) => (
+              <div key={t.id} hidden>
+                {renderScreen(t.id)}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -189,24 +188,28 @@ export function PhoneApp() {
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">{selectedProject.description}</p>
               <div className="flex gap-2 pt-1">
-                <motion.a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileTap={{ scale: 0.96 }}
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-cyan-500/30 py-2.5 text-sm font-semibold text-cyan-400"
-                >
-                  <Github className="h-4 w-4" /> Code
-                </motion.a>
-                <motion.a
-                  href={selectedProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileTap={{ scale: 0.96 }}
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 py-2.5 text-sm font-semibold text-white"
-                >
-                  <ExternalLink className="h-4 w-4" /> Live Demo
-                </motion.a>
+                {selectedProject.githubUrl && (
+                  <motion.a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.96 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-cyan-500/30 py-2.5 text-sm font-semibold text-cyan-400"
+                  >
+                    <Github className="h-4 w-4" /> Code
+                  </motion.a>
+                )}
+                {selectedProject.liveUrl && (
+                  <motion.a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.96 }}
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 py-2.5 text-sm font-semibold text-white"
+                  >
+                    <ExternalLink className="h-4 w-4" /> Live Demo
+                  </motion.a>
+                )}
               </div>
             </div>
           )}

@@ -69,6 +69,45 @@
 }
 
 @layer components {
+  /* Soft cyan glow behind the hero container */
+  .glow {
+    position: relative;
+    padding: 2rem 1rem;
+  }
+
+  .glow::before,
+  .glow::after {
+    content: '';
+    top: 0;
+    position: absolute;
+    filter: blur(45px);
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+
+  .glow::before {
+    background: var(--secondary-glow);
+    border-radius: 50%;
+    width: 1000px;
+    height: 500px;
+    margin-left: -400px;
+  }
+
+  .glow::after {
+    background: var(--primary-glow);
+    width: 240px;
+    height: 180px;
+    z-index: -1;
+  }
+}
+
+@media (min-width: 768px) {
+  .glow {
+    padding: 4rem 4rem;
+  }
+}
+
+@layer components {
   .text-gradient-primary {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500;
   }

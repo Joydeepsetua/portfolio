@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Smartphone, Monitor } from "lucide-react"
 import { PhoneApp } from "@/components/phone/phone-app"
 import { DesktopView } from "@/components/desktop-view"
@@ -9,11 +9,31 @@ import { cn } from "@/lib/utils"
 type View = "mobile" | "desktop"
 
 export function ViewSwitcher() {
-  const [view, setView] = useState<View>("mobile")
+  // null until mounted: the server can't know the screen size, so it renders
+  // both views and CSS shows the right one (no flash, both crawlable). After
+  // mount we pick one — desktop on md+ screens, mobile otherwise.
+  const [view, setView] = useState<View | null>(null)
+
+  useEffect(() => {
+    setView(window.matchMedia("(min-width: 768px)").matches ? "desktop" : "mobile")
+  }, [])
 
   return (
     <>
-      {view === "mobile" ? <PhoneApp /> : <DesktopView />}
+      {view === null ? (
+        <>
+          <div className="md:hidden">
+            <PhoneApp />
+          </div>
+          <div className="hidden md:block">
+            <DesktopView />
+          </div>
+        </>
+      ) : view === "mobile" ? (
+        <PhoneApp />
+      ) : (
+        <DesktopView />
+      )}
 
       {/* View toggle — shown only on tablet/desktop (hidden on small phones) */}
       <div className="fixed right-4 top-4 z-[70] hidden items-center gap-1 rounded-full border border-border/60 bg-background/80 p-1 shadow-lg backdrop-blur md:flex">

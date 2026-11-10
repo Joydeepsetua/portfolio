@@ -68,28 +68,32 @@ export function Projects() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-between">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  asChild
-                  className="border-cyan-500/20 hover:border-cyan-500/40 hover:bg-cyan-500/5 transition-all duration-300"
-                >
-                  <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4 text-cyan-500" />
-                    Code
-                  </Link>
-                </Button>
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
-                >
-                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </Link>
-                </Button>
+              <CardFooter className={`flex ${project.githubUrl && project.liveUrl ? "justify-between" : "justify-end"}`}>
+                {project.githubUrl && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="border-cyan-500/20 hover:border-cyan-500/40 hover:bg-cyan-500/5 transition-all duration-300"
+                  >
+                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4 text-cyan-500" />
+                      Code
+                    </Link>
+                  </Button>
+                )}
+                {project.liveUrl && (
+                  <Button
+                    size="sm"
+                    asChild
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
+                  >
+                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </Link>
+                  </Button>
+                )}
               </CardFooter>
             </AnimatedCard>
           ))}
