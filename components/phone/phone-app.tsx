@@ -11,7 +11,7 @@ import { SplashScreen } from "@/components/phone/splash-screen"
 import { ScreenSkeleton, HomeSkeleton } from "@/components/phone/screen-skeleton"
 import { BottomSheet } from "@/components/phone/bottom-sheet"
 import { Toaster } from "@/components/ui/toaster"
-import { type TabId } from "@/components/phone/tabs"
+import { TABS, type TabId } from "@/components/phone/tabs"
 import { HomeScreen } from "@/components/phone/screens/home-screen"
 import { ProjectsScreen } from "@/components/phone/screens/projects-screen"
 import { SkillsScreen } from "@/components/phone/screens/skills-screen"
@@ -24,9 +24,9 @@ const PULL_TRIGGER = 55
 export function PhoneApp() {
   const [booting, setBooting] = useState(true)
   const [activeTab, setActiveTab] = useState<TabId>("home")
-  // Starts true so the skeleton (not the real screen) sits behind the splash —
-  // avoids a one-frame flash of real content as the splash fades out.
-  const [loading, setLoading] = useState(true)
+  // Starts false so the real content is in the server HTML (crawlable) — the
+  // splash overlays it until boot finishes.
+  const [loading, setLoading] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
@@ -43,14 +43,6 @@ export function PhoneApp() {
     const id = setTimeout(() => setBooting(false), 1800)
     return () => clearTimeout(id)
   }, [])
-
-  // Skeleton only on the first load (right after the splash) — not on tab switches
-  useEffect(() => {
-    if (booting) return
-    setLoading(true)
-    const id = setTimeout(() => setLoading(false), 500)
-    return () => clearTimeout(id)
-  }, [booting])
 
   // Reset scroll position when switching tabs (no skeleton)
   useEffect(() => {
@@ -95,8 +87,8 @@ export function PhoneApp() {
     setPull(0)
   }
 
-  const renderScreen = () => {
-    switch (activeTab) {
+  const renderScreen = (tab: TabId) => {
+    switch (tab) {
       case "home":
         return <HomeScreen onNavigate={setActiveTab} />
       case "projects":
@@ -163,10 +155,17 @@ export function PhoneApp() {
                   transition={{ duration: 0.25 }}
                   className="flex flex-1 flex-col"
                 >
-                  {renderScreen()}
+                  {renderScreen(activeTab)}
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {/* Inactive tabs stay in the DOM (hidden) so crawlers can index every screen */}
+            {TABS.filter((t) => t.id !== activeTab).map((t) => (
+              <div key={t.id} hidden>
+                {renderScreen(t.id)}
+              </div>
+            ))}
           </div>
         </div>
 
