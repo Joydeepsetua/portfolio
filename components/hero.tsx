@@ -8,7 +8,7 @@ import { TypingEffect } from "@/components/typing-effect"
 import { AnimatedSection } from "@/components/animated-section"
 import { motion } from "framer-motion"
 import { BubbleEffect } from "@/components/bubble-effect"
-import { CV_URL, MY_BIO, MY_GITHUB_URL, MY_LINKEDIN_URL, MY_ROLE, MY_TWITTER_URL } from "@/lib/constants"
+import { RESUME_DOWNLOAD_PATH, MY_BIO, MY_GITHUB_URL, MY_LINKEDIN_URL, MY_ROLE, MY_TWITTER_URL } from "@/lib/constants"
 import { useState } from "react"
 
 export function Hero() {
@@ -18,7 +18,8 @@ export function Hero() {
     setLoading(true);
     try {
       const link = document.createElement("a");
-      link.href = CV_URL;
+      link.href = RESUME_DOWNLOAD_PATH;
+      link.download = "Joydeep-Setua-Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

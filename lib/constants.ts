@@ -15,3 +15,5 @@ export const MY_TWITTER_URL = "https://twitter.com/joydeepsetua";
 export const MY_EMAIL = "joydeepsetua86@gmail.com";
 export const MY_PHONE = "+91 9713231022";
 export const MY_LOCATION = "Bhilai, Chhattisgarh, India";
+// Same-origin route that serves CV_URL as a PDF (see app/api/resume/route.ts)
+export const RESUME_DOWNLOAD_PATH = "/api/resume";

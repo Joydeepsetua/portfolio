@@ -20,7 +20,7 @@ import { TapScale } from "@/components/phone/tap-scale"
 import { Badge } from "@/components/ui/badge"
 import { experiences, education, achievements } from "@/lib/data"
 import {
-  CV_URL,
+  RESUME_DOWNLOAD_PATH,
   MY_BIO,
   MY_GITHUB_URL,
   MY_LINKEDIN_URL,
@@ -53,7 +53,8 @@ export function HomeScreen({ onNavigate }: { onNavigate: (tab: "contact") => voi
     setDownloading(true)
     try {
       const link = document.createElement("a")
-      link.href = CV_URL
+      link.href = RESUME_DOWNLOAD_PATH
+      link.download = "Joydeep-Setua-Resume.pdf"
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
