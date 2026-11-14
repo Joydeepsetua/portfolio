@@ -4,7 +4,8 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { projects, type Project } from "@/lib/data"
+import { projects, getLiveUrl, type Project } from "@/lib/data"
+import { ProjectStatusBadge } from "@/components/project-status-badge"
 
 export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) => void }) {
   return (
@@ -104,9 +105,9 @@ export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) 
                     <Github className="h-3.5 w-3.5" /> Code
                   </motion.a>
                 )}
-                {project.liveUrl && (
+                {getLiveUrl(project) ? (
                   <motion.a
-                    href={project.liveUrl}
+                    href={getLiveUrl(project)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -115,6 +116,8 @@ export function ProjectsScreen({ onOpenProject }: { onOpenProject: (p: Project) 
                   >
                     <ExternalLink className="h-3.5 w-3.5" /> Live
                   </motion.a>
+                ) : (
+                  <ProjectStatusBadge status={project.status} className="flex-1 py-2 text-[11px]" />
                 )}
               </div>
             </div>

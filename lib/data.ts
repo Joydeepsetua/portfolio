@@ -24,13 +24,29 @@ export interface Achievement {
   description: string
 }
 
+export type ProjectStatus = "in-progress" | "in-review" | "in-testing" | "live" | "coming-soon"
+
+export const PROJECT_STATUS_LABEL: Record<ProjectStatus, string> = {
+  "in-progress": "In Progress",
+  "in-review": "In Review",
+  "in-testing": "In Testing",
+  live: "Live",
+  "coming-soon": "Coming Soon",
+}
+
 export interface Project {
   title: string
   description: string
   image: string
   tags: string[]
+  status: ProjectStatus
   liveUrl?: string
   githubUrl?: string
+}
+
+/** The live link is shown only when the project is live AND has a URL; otherwise the status is shown. */
+export function getLiveUrl(project: Project): string | undefined {
+  return project.status === "live" ? project.liveUrl : undefined
 }
 
 export interface SkillCategory {
@@ -111,6 +127,7 @@ export const projects: Project[] = [
       "A privacy-first facial recognition attendance app for Android that runs entirely offline. ML Kit detects and crops the face, a FaceNet TensorFlow Lite model turns it into a 128-dimensional embedding, and cosine similarity matches it against records stored locally in SQLite. All processing happens on-device, so no face image or biometric data ever leaves the phone.",
     image: "/projects/faceten.jpg",
     tags: ["React Native", "TensorFlow Lite", "ML Kit", "TypeScript", "Kotlin", "SQLite"],
+    status: "live",
     liveUrl: "https://play.google.com/store/apps/details?id=com.facialattendance",
     githubUrl: "https://github.com/Joydeepsetua/facial-attendance-system",
   },
@@ -120,7 +137,8 @@ export const projects: Project[] = [
       "A deliberately minimal Android launcher that does one thing: search installed apps by name and launch them. Built on React Native's New Architecture (bridgeless Fabric + TurboModule) with a single Kotlin native module handling app queries, recents and screen time. No widgets, folders, feeds, ads or accounts — it runs entirely offline.",
     image: "/projects/jode-launcher.jpg",
     tags: ["React Native", "TypeScript", "Kotlin", "TurboModule"],
-    liveUrl:"https://play.google.com/store/apps/details?id=com.zypido.jode",
+    status: "in-review",
+    // liveUrl:"https://play.google.com/store/apps/details?id=com.zypido.jode",
     githubUrl: "https://github.com/Joydeepsetua/jode-launcher",
   },
   {
@@ -129,6 +147,7 @@ export const projects: Project[] = [
       "It is a web application for generating medical reports. This front-end application can generate over 52 types of test reports instantly without storing any data.",
     image: "/projects/shree-pathology-lab.jpeg",
     tags: ["Next.js", "React-Bootstrap", "TypeScript"],
+    status: "live",
     liveUrl: "https://shree-pathology-lab.netlify.app/",
     githubUrl: "https://github.com/Joydeepsetua/Shree-Pathology-Laboratory-Web",
   },
@@ -138,6 +157,7 @@ export const projects: Project[] = [
       "Built a cost-effective CRUD application using Google Sheets as a free database alternative, deployed entirely on Vercel with zero infrastructure cost. Demonstrated basic CRUD operations and REST API integration using Node.js.",
     image: "/projects/google-sheet-api.jpg",
     tags: ["Node.js", "Express", "Spreadsheet", "Googleapis", "JWT"],
+    status: "live",
     liveUrl:
       "https://medium.com/@joydeepsetua/how-to-insert-data-in-google-sheets-spreadsheet-in-node-js-a5e3a1886069",
     githubUrl: "https://github.com/Joydeepsetua/Google-Sheet-Api",
@@ -148,6 +168,7 @@ export const projects: Project[] = [
   //     "This Android application is developed for daily student attendance tracking and generates monthly reports for teachers.",
   //   image: "/projects/getattendance.png",
   //   tags: ["Android Studio", "Java", "SQLite"],
+  //   status: "live",
   //   liveUrl: "https://drive.google.com/file/d/1DrEHjBNrHaxEjBjN5bd3vIvgwGr9Vbs6/view?usp=sharing",
   //   githubUrl: "https://github.com/Joydeepsetua/Get-Attendance",
   // },

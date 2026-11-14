@@ -8,13 +8,13 @@ import {
   Download,
   Github,
   Linkedin,
-  Twitter,
   Loader2,
   Briefcase,
   GraduationCap,
   Trophy,
   MapPin,
 } from "lucide-react"
+import { XIcon } from "@/components/icons/x-icon"
 import { TypingEffect } from "@/components/typing-effect"
 import { TapScale } from "@/components/phone/tap-scale"
 import { Badge } from "@/components/ui/badge"
@@ -32,7 +32,7 @@ import {
 const socials = [
   { icon: Github, url: MY_GITHUB_URL, label: "GitHub" },
   { icon: Linkedin, url: MY_LINKEDIN_URL, label: "LinkedIn" },
-  { icon: Twitter, url: MY_TWITTER_URL, label: "Twitter" },
+  { icon: XIcon, url: MY_TWITTER_URL, label: "X (Twitter)" },
 ]
 
 function SectionTitle({ icon: Icon, children }: { icon: typeof Briefcase; children: React.ReactNode }) {

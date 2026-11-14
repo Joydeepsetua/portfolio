@@ -9,7 +9,8 @@ import { ExternalLink, Github } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { motion } from "framer-motion"
-import { projects } from "@/lib/data"
+import { projects, getLiveUrl } from "@/lib/data"
+import { ProjectStatusBadge } from "@/components/project-status-badge"
 
 export function Projects() {
   return (
@@ -35,7 +36,8 @@ export function Projects() {
           {projects.map((project, index) => (
             <AnimatedCard
               key={index}
-              className="overflow-hidden border-none bg-background/80 shadow-md backdrop-blur-sm"
+              wrapperClassName="h-full"
+              className="flex h-full flex-col overflow-hidden border-none bg-background/80 shadow-md backdrop-blur-sm"
               delay={index * 0.1}
             >
               <motion.div
@@ -68,7 +70,7 @@ export function Projects() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className={`flex ${project.githubUrl && project.liveUrl ? "justify-between" : "justify-end"}`}>
+              <CardFooter className={`mt-auto flex ${project.githubUrl ? "justify-between" : "justify-end"}`}>
                 {project.githubUrl && (
                   <Button
                     variant="outline"
@@ -82,17 +84,19 @@ export function Projects() {
                     </Link>
                   </Button>
                 )}
-                {project.liveUrl && (
+                {getLiveUrl(project) ? (
                   <Button
                     size="sm"
                     asChild
                     className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300"
                   >
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <Link href={getLiveUrl(project)!} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
                     </Link>
                   </Button>
+                ) : (
+                  <ProjectStatusBadge status={project.status} className="h-9 rounded-md px-3 text-sm" />
                 )}
               </CardFooter>
             </AnimatedCard>

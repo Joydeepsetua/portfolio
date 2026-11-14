@@ -3,7 +3,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Download, Github, Linkedin, Twitter, Loader2 } from "lucide-react"
+import { Download, Github, Linkedin, Loader2 } from "lucide-react"
+import { XIcon } from "@/components/icons/x-icon"
 import { TypingEffect } from "@/components/typing-effect"
 import { AnimatedSection } from "@/components/animated-section"
 import { motion } from "framer-motion"
@@ -100,8 +101,8 @@ export function Hero() {
                     size="icon"
                     className="text-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10"
                   >
-                    <Twitter className="h-5 w-5" />
-                    <span className="sr-only">Twitter</span>
+                    <XIcon className="h-5 w-5" />
+                    <span className="sr-only">X (Twitter)</span>
                   </Button>
                 </Link>
               </motion.div>

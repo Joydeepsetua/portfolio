@@ -17,7 +17,8 @@ import { ProjectsScreen } from "@/components/phone/screens/projects-screen"
 import { SkillsScreen } from "@/components/phone/screens/skills-screen"
 import { ContactScreen } from "@/components/phone/screens/contact-screen"
 import { Badge } from "@/components/ui/badge"
-import { type Project } from "@/lib/data"
+import { getLiveUrl, type Project } from "@/lib/data"
+import { ProjectStatusBadge } from "@/components/project-status-badge"
 
 const PULL_TRIGGER = 55
 
@@ -199,9 +200,9 @@ export function PhoneApp() {
                     <Github className="h-4 w-4" /> Code
                   </motion.a>
                 )}
-                {selectedProject.liveUrl && (
+                {getLiveUrl(selectedProject) ? (
                   <motion.a
-                    href={selectedProject.liveUrl}
+                    href={getLiveUrl(selectedProject)}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileTap={{ scale: 0.96 }}
@@ -209,6 +210,8 @@ export function PhoneApp() {
                   >
                     <ExternalLink className="h-4 w-4" /> Live Demo
                   </motion.a>
+                ) : (
+                  <ProjectStatusBadge status={selectedProject.status} className="flex-1 py-2.5 text-sm" />
                 )}
               </div>
             </div>

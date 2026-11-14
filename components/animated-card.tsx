@@ -8,12 +8,15 @@ import { Card } from "@/components/ui/card"
 interface AnimatedCardProps {
   children: React.ReactNode
   className?: string
+  /** Classes for the outer animated wrapper (e.g. "h-full" to stretch in a grid row) */
+  wrapperClassName?: string
   delay?: number
 }
 
-export function AnimatedCard({ children, className = "", delay = 0 }: AnimatedCardProps) {
+export function AnimatedCard({ children, className = "", wrapperClassName, delay = 0 }: AnimatedCardProps) {
   return (
     <motion.div
+      className={wrapperClassName}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

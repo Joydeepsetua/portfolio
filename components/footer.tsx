@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
+import { XIcon } from "@/components/icons/x-icon"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { MY_EMAIL, MY_GITHUB_URL, MY_LINKEDIN_URL, MY_TWITTER_URL } from "@/lib/constants"
@@ -57,8 +58,8 @@ export function Footer() {
                 className="text-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10"
               >
                 <Link href={MY_TWITTER_URL} target="_blank" rel="noopener noreferrer">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
+                  <XIcon className="h-5 w-5" />
+                  <span className="sr-only">X (Twitter)</span>
                 </Link>
               </Button>
             </motion.div>
